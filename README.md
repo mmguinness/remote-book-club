@@ -6,7 +6,9 @@ A simple website to host a remote book club. Users can log in to add suggestions
 
 ### Tech Stack
 
-TBC
+- [Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/) JavaScript runtime environment.
+- [Express](https://expressjs.com/) web framework for Node.js.
+- [Jest](https://jestjs.io/) for unit testing.
 
 <br>
 
