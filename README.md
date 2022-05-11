@@ -7,8 +7,9 @@ A simple website to host a remote book club. Users can log in to add suggestions
 ### Tech Stack
 
 TBC
+<br>
 
-### Functionality
+### Functionality
 
 - You don't have to be logged in to see the reading history
 - Users can sign up to RBC with email, name and a username
@@ -18,8 +19,8 @@ TBC
 **MVP**
 - User: See current book and discussion date
 - User: Can see all previously selected books
-- User: Add book suggestion
-**Additional**
+- User: Add book suggestion<br>
+**Additional**<br>
 - User: Sign up
 - User: Sign in
 - User: Sign out
@@ -28,11 +29,11 @@ TBC
 
 ```
 As a RBC member
-So that I could keep up with my reading
+So that I can keep up with my reading
 I would like to be able to see the current book and discussion date
 
 As a RBC member
-So that I could suggest a new book
+So that I can suggest a new book
 I would like to be able to post my book suggestion
 ```
 
@@ -42,7 +43,7 @@ I would like to be able to post my book suggestion
 
 ```
 As a RBC member
-In order to have access to the application
+In order to interact with the application
 I would like to be able to sign up
 
 As a RBC member
@@ -58,8 +59,8 @@ So that I am kept up to date with my reading
 I would like to recieve an email every time a new book is selected
 
 As a RBC member
-So that I don't miss a suggestion
-I would like to recieve an email reminder the morning of a book discussion with link
+So that I don't miss a discussion
+I would like to recieve an email reminder the morning of a book discussion with a link
 ```
 
 </details>
