@@ -9,8 +9,8 @@ A simple website to host a remote book club. Users can log in to add suggestions
 - [Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/) JavaScript runtime environment.
 - [Express](https://expressjs.com/) web framework for Node.js.
 - [Jest](https://jestjs.io/) for unit testing.
+- [ESLint](https://eslint.org) for linting.
 
-<br>
 
 ### Functionality
 
@@ -23,7 +23,6 @@ A simple website to host a remote book club. Users can log in to add suggestions
 
 - User: See current book and discussion date
 - User: Can see all previously selected books
-<br>
 
 <details><summary>MVP user stories & wireframe</summary>
 
