@@ -1,9 +1,16 @@
-console.log("Testing my development environment");
+const SelectedBooksView = require("./selectedBooksView");
+const SelectedBooksModel = require("./selectedBooksModel")
+const view = new SelectedBooksView();
+const model = new SelectedBooksModel();
 
-console.log("Still here");
 
-console.log(new Date());
 
-console.log("Still here");
+view.displayBooks(["Girl, Woman, Other - Bernardine Evaristo"]);
+view.displayBooks(["Beautiful world, where are you - Sally Rooney"]);
+view.displayBooks(["Americanah - Chimamanda Ngozi Adichie"]);
+view.displayBooks([
+  "Why I no longer talk to white people about race - Reni Eddo-Lodge",
+]);
+view.displayBooks(["Kitchen - Banana Yoshimoto"]);
+view.displayBooks(["Americanah - Chimamanda Ngozi Adichie"]);
 
-console.log("Still here");
