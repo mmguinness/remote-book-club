@@ -7,6 +7,7 @@ A simple website to host a remote book club. Users can log in to add suggestions
 ### Tech Stack
 
 TBC
+
 <br>
 
 ### Functionality
@@ -17,13 +18,10 @@ TBC
 - In order to start a conversation about the book, users can comment on books
 
 **MVP**
+
 - User: See current book and discussion date
 - User: Can see all previously selected books
 - User: Add book suggestion<br>
-**Additional**<br>
-- User: Sign up
-- User: Sign in
-- User: Sign out
 
 <details><summary>MVP user stories</summary>
 
@@ -38,6 +36,13 @@ I would like to be able to post my book suggestion
 ```
 
 </details>
+<br>
+
+**Additional**<br>
+
+- User: Sign up
+- User: Sign in
+- User: Sign out
 
 <details><summary>Additional user stories</summary>
 
