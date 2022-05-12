@@ -11,11 +11,11 @@ describe("selectedBooksView", () => {
     document.body.innerHTML = fs.readFileSync("./index.html");
     const view = new SelectedBooksView();
 
-    view.displayBooks(["Kitchen"]);
+    view.displayBooks(["Example Book - Example Author"]);
     
     const booksElements = document.querySelectorAll("div.books");
     expect(booksElements.length).toEqual(1); 
-    expect(booksElements[0].innerText).toEqual("Kitchen"); 
+    expect(booksElements[0].innerText).toEqual("Example Book - Example Author"); 
 
   })
 
