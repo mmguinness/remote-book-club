@@ -84,4 +84,8 @@ I would like to recieve an email reminder the morning of a book discussion with 
 
 </details>
 
+### Work in progress screenshots
+
+![](./images/Work-in-progress-220512.png)
+<br>
 ![](./images/Work-in-progress-220511.png)
