@@ -1,7 +1,7 @@
 const SelectedBooksView = require("./selectedBooksView");
-const SelectedBooksModel = require("./selectedBooksModel")
+// const SelectedBooksModel = require("./selectedBooksModel")
 const view = new SelectedBooksView();
-const model = new SelectedBooksModel();
+// const model = new SelectedBooksModel();
 
 
 

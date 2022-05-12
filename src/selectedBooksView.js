@@ -7,7 +7,7 @@ class SelectedBooksView {
         newElement.innerText = book;
         document.querySelector('#main-container').append(newElement);
       })
-    };
+    }
 
 }
 
