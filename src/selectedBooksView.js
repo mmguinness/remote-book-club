@@ -11,11 +11,20 @@ class SelectedBooksView {
     books.reverse();
 
     books.forEach((book) => {
-      const newElement = document.createElement("div");
-      newElement.className = "books column is-2";
+      const newElement = document.createElement("button");
+      newElement.className = "books column is-2 button";
       newElement.innerText = book;
+      newElement.id = book;
       document.querySelector("#main-container").append(newElement);
+
+      newElement.addEventListener('click', () => {
+        const bookTitle = newElement.innerText;
+        const currentTitleElement = document.querySelector("#book-title-current");
+        currentTitleElement.innerText = bookTitle;
+      })
+
     });
+
   }
 }
 
