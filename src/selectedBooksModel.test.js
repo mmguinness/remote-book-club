@@ -9,9 +9,9 @@ describe('SelectedBooks model class', () => {
 
   it("adds a books", () => {
     const books = new SelectedBooksModel();
-    books.addBook("Crying in H Mart");
+    books.addBook("Example Book - Example Author");
 
-    expect(books.getBooks()).toEqual(["Crying in H Mart"]);
+    expect(books.getBooks()).toEqual(["Example Book - Example Author"]);
   });
 
 });
