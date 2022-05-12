@@ -4,6 +4,7 @@
 
 const fs = require("fs");
 const SelectedBooksView = require("./selectedBooksView");
+const SelectedBooksModel = require("./selectedBooksModel");
 
 describe("selectedBooksView", () => {
 
@@ -16,11 +17,20 @@ describe("selectedBooksView", () => {
     expect(titleElement.innerHTML).toEqual("RBC");
   });
 
-  it("should display one book on the page", () => {
-    const view = new SelectedBooksView();
-    view.displayBooks(["Example Book - Example Author"]);
-    const booksElements = document.querySelectorAll("div.books");
-    expect(booksElements.length).toEqual(1); 
+  it("should display two books on the page header", () => {
+    
+    const model = new SelectedBooksModel();
+    const view = new SelectedBooksView(model);
+
+    model.addBook("Example Book - Example Author");
+    model.addBook("Example Book - Example Author");
+
+    view.displayBooks();
+
+    const booksElements = document.getElementsByClassName(
+      "books column is-2"
+    );
+    expect(booksElements.length).toEqual(2); 
     expect(booksElements[0].innerText).toEqual("Example Book - Example Author"); 
   })
 

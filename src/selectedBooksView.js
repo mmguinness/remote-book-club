@@ -1,18 +1,20 @@
 class SelectedBooksView {
- 
-    displayBooks(books){
-      books.forEach((book) => {
-        const newElement = document.createElement('div');
-        newElement.className = 'books';
-        newElement.className = "subtitle";
-        newElement.className = "column is-2";
-        // newElement.className = "button is-danger is-small";
-        // newElement.className = "button";
-        newElement.innerText = book;
-        document.querySelector('#main-container').append(newElement);
-      })
-    }
+  constructor(model) {
+    this.model = model;
+    this.mainContainerEl = document.querySelector("#main-container");
+  }
 
+  displayBooks() {
+
+    const books = this.model.getBooks();
+
+    books.forEach((book) => {
+      const newElement = document.createElement("div");
+      newElement.className = "books column is-2";
+      newElement.innerText = book;
+      document.querySelector("#main-container").append(newElement);
+    });
+  }
 }
 
 module.exports = SelectedBooksView;
