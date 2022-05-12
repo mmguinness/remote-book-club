@@ -11,6 +11,7 @@ A simple website to host a remote book club. Users can log in to add suggestions
 - [Jest](https://jestjs.io/) to write and run unit tests.
 - [ESLint](https://eslint.org) for linting.
 - [ESBuild](https://esbuild.github.io/getting-started/) to bundle JS source files.
+- [Bulma](https://bulma.io/documentation) for CSS styling.
 
 
 ### Functionality
