@@ -8,6 +8,8 @@ class SelectedBooksView {
 
     const books = this.model.getBooks();
 
+    books.reverse();
+
     books.forEach((book) => {
       const newElement = document.createElement("div");
       newElement.className = "books column is-2";
