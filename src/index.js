@@ -1,14 +1,15 @@
 const SelectedBooksView = require("./selectedBooksView");
 const SelectedBooksModel = require("./selectedBooksModel");
+const books = require("./bookObjects");
 
 const model = new SelectedBooksModel();
 
-model.addBook('Example Book 1');
-model.addBook("Example Book 2");
-model.addBook("Example Book 3");
-model.addBook("Example Book 4");
-model.addBook("Example Book 5");
-model.addBook("Example Book 6");
+model.addBook(books[0]);
+model.addBook(books[1]);
+model.addBook(books[2]);
+model.addBook(books[3]);
+model.addBook(books[4]);
+model.addBook(books[5]);
 
 model.getBooks();
 

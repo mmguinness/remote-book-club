@@ -13,7 +13,7 @@ class SelectedBooksView {
     books.forEach((book) => {
       const newElement = document.createElement("button");
       newElement.className = "books column is-2 button";
-      newElement.innerText = book;
+      newElement.innerText = book.name;
       newElement.id = book;
       document.querySelector("#main-container").append(newElement);
 
