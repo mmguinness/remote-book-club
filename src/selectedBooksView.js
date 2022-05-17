@@ -21,7 +21,22 @@ class SelectedBooksView {
         const bookTitle = newElement.innerText;
         const currentTitleElement = document.querySelector("#book-title-current");
         currentTitleElement.innerText = bookTitle;
+
+        const bookAuthorName = book.author_name;
+        const currentAuthorName = document.querySelector("#author-name-current");
+        currentAuthorName.innerText = bookAuthorName;
+
+        const bookDiscussionDate = book.discussion_date;
+        const currentSDiscussionDate = document.querySelector("#discussion-date-current");
+        currentSDiscussionDate.innerText = bookDiscussionDate;
+
+        const bookDescription = book.description;
+        const currentDescription = document.querySelector(
+          "#description-current"
+        );
+        currentDescription.innerText = bookDescription;
       })
+
 
     });
 
