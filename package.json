@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "start": "nodemon ./bin/www",
+    "start": "node index.js",
     "build": "esbuild ./src/index.js --bundle  --outfile=bundle.js --watch"
   },
   "repository": {
@@ -28,5 +28,9 @@
   "devDependencies": {
     "eslint": "^8.15.0",
     "nodemon": "^2.0.16"
+  },
+  "engines": {
+    "node": "18.0.0",
+    "npm" : "8.6.0"
   }
 }
