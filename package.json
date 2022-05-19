@@ -1,8 +1,8 @@
 {
   "name": "remote_book_club",
   "version": "1.0.0",
-  "description": "## About",
-  "main": "index.js",
+  "description": "Book Club Website",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
@@ -28,5 +28,8 @@
   "devDependencies": {
     "eslint": "^8.15.0",
     "nodemon": "^2.0.16"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   }
 }
