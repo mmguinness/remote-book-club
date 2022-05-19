@@ -2,11 +2,11 @@
 
 ## About
 
-A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history.
+A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. Read me about about how I built it [here](https://mmguinness.github.io/portfolio/portfolio/2022/05/12/Model-view-controller.html).
 
-### Work in progress screenshots
+### Work in progress screenshot
 
-Current status:
+Current status, approaching MVP:
 
 ![](./images/Work-in-progress-220519.png)
 
