@@ -5,29 +5,35 @@ class SelectedBooksView {
   }
 
   displayBooks() {
-
     const books = this.model.getBooks();
 
     books.reverse();
 
     books.forEach((book) => {
-      const newElement = document.createElement("button");
-      newElement.className = "books column is-2 button";
+      const newElement = document.createElement("image");
+      newElement.className = "image books column is-2";
       newElement.innerText = book.name;
-      newElement.id = book;
+      newElement.id = book.id;
+      newElement.src = book.image;
       document.querySelector("#main-container").append(newElement);
 
-      newElement.addEventListener('click', () => {
+      newElement.addEventListener("click", () => {
         const bookTitle = newElement.innerText;
-        const currentTitleElement = document.querySelector("#book-title-current");
+        const currentTitleElement = document.querySelector(
+          "#book-title-current"
+        );
         currentTitleElement.innerText = bookTitle;
 
         const bookAuthorName = book.author_name;
-        const currentAuthorName = document.querySelector("#author-name-current");
+        const currentAuthorName = document.querySelector(
+          "#author-name-current"
+        );
         currentAuthorName.innerText = bookAuthorName;
 
         const bookDiscussionDate = book.discussion_date;
-        const currentSDiscussionDate = document.querySelector("#discussion-date-current");
+        const currentSDiscussionDate = document.querySelector(
+          "#discussion-date-current"
+        );
         currentSDiscussionDate.innerText = bookDiscussionDate;
 
         const bookDescription = book.description;
@@ -35,11 +41,8 @@ class SelectedBooksView {
           "#description-current"
         );
         currentDescription.innerText = bookDescription;
-      })
-
-
+      });
     });
-
   }
 }
 

@@ -4,6 +4,12 @@
 
 A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history.
 
+### Work in progress screenshots
+
+Current status:
+
+![](./images/Work-in-progress-220519.png)
+
 ### Tech Stack
 
 - [Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/) JavaScript runtime environment.
@@ -26,7 +32,7 @@ A simple website to host a remote book club. Users can log in to add suggestions
 - User: See current book and discussion date
 - User: Can see all previously selected books
 
-<details><summary>MVP user stories & wireframe</summary>
+**MVP user stories & wireframe**
 
 ```
 As a RBC member
@@ -41,7 +47,7 @@ I would like to be able see all previous remote-book-club selected books
 ![](./images/wireframeMVP.png)
 
 
-</details>
+
 <br>
 
 **Additional**<br>
@@ -52,7 +58,7 @@ I would like to be able see all previous remote-book-club selected books
 - User: Add book suggestion
 - User: Get reminder emails
 
-<details><summary>Additional user stories & wireframes</summary>
+**Additional user stories & wireframes**
 
 ```
 As a RBC member
@@ -82,10 +88,3 @@ I would like to recieve an email reminder the morning of a book discussion with 
 
 ![](./images/wireframeAdditional.png)
 
-</details>
-
-### Work in progress screenshots
-
-Current status:
-
-![](./images/Work-in-progress-220517.png)
