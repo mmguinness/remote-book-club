@@ -2,7 +2,7 @@
 
 ## About
 
-A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. Read me about about how I started to built it [here](https://mmguinness.github.io/portfolio/portfolio/2022/05/12/Model-view-controller.html).
+A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. Read me about how I started to built it [here](https://mmguinness.github.io/portfolio/portfolio/2022/05/12/Model-view-controller.html).
 
 ### Work in progress screenshot
 
@@ -17,8 +17,12 @@ Current status, MVP achieved(with hardcoded info):
 - [Jest](https://jestjs.io/) to write and run unit tests.
 - [ESLint](https://eslint.org) for linting.
 - [ESBuild](https://esbuild.github.io/getting-started/) to bundle JS source files.
-- [Handlebars](https://handlebarsjs.com/) for serverside rendering to generate the HTML.
+- [Handlebars](https://handlebarsjs.com/) for serverside rendering to generate the HTML. [Reference](https://stackabuse.com/guide-to-handlebars-templating-engine-for-node/) tutorial. 
 - [Bulma](https://bulma.io/documentation) for CSS styling the HTML.
+
+![](./images/Diagram_01.png)
+
+Adding Handlebars template engine to the tech stack with Node.js and Express, allows me to create a Server Side Rendered (SSR) web application. The template for the webpage is defined and then, based on the current requirement and the query to the database(hardcoded to start with), the template is populated with received content. The template engine generates the HTML on the server side and then this static rendered webpage is displayed in the browser. 
 
 
 ### Functionality
