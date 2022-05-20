@@ -2,13 +2,13 @@
 
 ## About
 
-A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. Read me about about how I built it [here](https://mmguinness.github.io/portfolio/portfolio/2022/05/12/Model-view-controller.html).
+A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. Read me about about how I started to built it [here](https://mmguinness.github.io/portfolio/portfolio/2022/05/12/Model-view-controller.html).
 
 ### Work in progress screenshot
 
-Current status, approaching MVP:
+Current status, MVP achieved(with hardcoded info):
 
-![](./images/Work-in-progress-220519.png)
+![](./images/Work-in-progress-220520.png)
 
 ### Tech Stack
 
