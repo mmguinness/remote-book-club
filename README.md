@@ -14,9 +14,9 @@ Current status, MVP achieved(with hardcoded info):
 
 - [Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/) JavaScript runtime environment.
 - [Express](https://expressjs.com/) web framework for Node.js.
+- [Nodemon](https://nodemon.io/) to reload the server automatically.
 - [Jest](https://jestjs.io/) to write and run unit tests.
 - [ESLint](https://eslint.org) for linting.
-- [ESBuild](https://esbuild.github.io/getting-started/) to bundle JS source files.
 - [Handlebars](https://handlebarsjs.com/) for serverside rendering to generate the HTML. [Reference](https://stackabuse.com/guide-to-handlebars-templating-engine-for-node/) tutorial. 
 - [Bulma](https://bulma.io/documentation) for CSS styling the HTML.
 
