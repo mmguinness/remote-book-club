@@ -16,6 +16,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 // route setup
 app.use("/", homeRouter);
+app.use(express.static(__dirname + "/images")); 
+app.use("/bulma", express.static(__dirname + "/node_modules/bulma/css/"));
 
 app.listen(3000);
 

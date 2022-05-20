@@ -1,2 +1,19 @@
-<h1>{{ title }}</h1>
-<p>Welcome to {{ title }}</p>
+<section class="section has-background-link-light">
+  <div id="top-panel" class="columns">
+    <h1 class="title is-size-1 column is-one-quarter has-text-link">{{title}}</h1>
+      <div
+                id="main-container"
+                class="column is-three-quarters tile is-ancestor"
+              >
+    {{#each books}}     
+    <div class="books column is-2">
+      <img src="{{this.image}}"
+                     class="card-img-top" alt="..." width="100">
+      <div class="card-body">
+            {{!-- <h5 class="card-title">{{this.name}}</h5> --}}
+      </div>
+    </div>   
+    {{/each}}
+    </div>
+  </div>
+</section>
