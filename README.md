@@ -27,10 +27,10 @@ Adding Handlebars template engine to the tech stack with Node.js and Express, al
 
 ### Functionality
 
-- You don't have to be logged in to see the reading history
-- Users can sign up to RBC with email, name and a username
-- The username and email are unique
-- In order to start a conversation about the book, users can comment on books
+- You don't have to be logged in to see the reading history.
+- Users can sign up to RBC with email and a username.
+- The username and email are unique.
+- In order to suggest a book, users can log in and add a suggestion.
 
 **MVP**
 
