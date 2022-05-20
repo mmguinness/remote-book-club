@@ -17,7 +17,8 @@ Current status, approaching MVP:
 - [Jest](https://jestjs.io/) to write and run unit tests.
 - [ESLint](https://eslint.org) for linting.
 - [ESBuild](https://esbuild.github.io/getting-started/) to bundle JS source files.
-- [Bulma](https://bulma.io/documentation) for CSS styling.
+- [Handlebars](https://handlebarsjs.com/) for serverside rendering to generate the HTML.
+- [Bulma](https://bulma.io/documentation) for CSS styling the HTML.
 
 
 ### Functionality
