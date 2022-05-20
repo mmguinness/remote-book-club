@@ -1,9 +1,8 @@
-li {
-font-size: 2rem;
-width: 300px;
-margin: 4px;
-padding: 4px;
-list-style: none
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-.midlaner {background-color: #eeeeee}
-.toplaner {background-color: #ffea00}
+
+a {
+  color: #00B7FF;
+}

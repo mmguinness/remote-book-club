@@ -2,29 +2,22 @@
 // const SelectedBooksModel = require("./selectedBooksModel");
 // const books = require("./bookObjects");
 const express = require("express");
+const path = require("path");
 const app = express();
-const port = 3000;
-const hbs = require("express-handlebars");
+const homeRouter = require("./routes/home");
+const hbshelpers = require("handlebars-helpers")();
+const hbs = require("hbs");
 
-// Routes to be set up for new pages
-const routes = require('./routes/index');
-
+hbs.registerHelper(hbshelpers);
 
 // view engine setup
-app.engine("hbs", hbs({extname: 'hbs', defaultLayout: 'layout', layoutDir: __dirname + '/views/layouts/'}));
 app.set("view engine", "hbs");
 app.set('views', path.join(__dirname, 'views'));
 
+// route setup
+app.use("/", homeRouter);
 
-
-
-app.use(express.static("public"));
-
-app.get("/", (req, res) => {
-  res.render("main", { layout: "index" });
-});
-
-app.listen(port, () => console.log(`App listening to port ${port}`));
+app.listen(3000);
 
 // const model = new SelectedBooksModel();
 
