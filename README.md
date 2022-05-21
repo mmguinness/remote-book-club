@@ -7,8 +7,13 @@ A simple website to host a remote book club. Users can log in to add suggestions
 ### Work in progress screenshot
 
 Current status, MVP achieved(with hardcoded info):
+- Homepage.
 
-![](./images/Work-in-progress-220520.png)
+![](./images/Work-in-progress-220521_01.png) 
+
+- All book details, history page.
+
+![](./images/Work-in-progress-220521_02.png)
 
 ### Tech Stack
 

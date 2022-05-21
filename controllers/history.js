@@ -3,7 +3,7 @@ const bookData = require("../models/bookData.json");
 const HistoryController = {
   Index: (req, res) => {
     res.render("history/index", {
-      title: "book club",
+      title: "Book Club",
       books: bookData,
     });
   },

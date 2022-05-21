@@ -1,5 +1,4 @@
-
-  [
+[
   {
     "name": "Girl, Woman, Other",
     "author_name": "Bernardine Evaristo",
@@ -9,10 +8,10 @@
   },
   {
     "name": "Woman World",
-    "author_name": "Bernardine Evaristo",
+    "author_name": "Aminder Dhaliwal",
     "image": "/WomanWorld.png",
     "discussion_date": "Oct 2021",
-    "description": "Girl, Woman, Other follows the lives and struggles of twelve very different characters. Mostly women, black and British, they tell the stories of their families, friends and lovers, across the country and through the years."
+    "description": "THE HILARIOUS AND WILDLY POPULAR INSTAGRAM COMIC ABOUT A WORLD WITH NO MEN With her startling humor, it’s no surprise that Aminder Dhaliwal’s web comic Woman World has a devoted audience of over 120,000 readers, updated biweekly with each installment earning an average of 25,000 likes. Now, readers everywhere will delight in the print edition as Dhaliwal seamlessly incorporates feminist philosophical concerns into a series of perfectly-paced strips that skewer perceived notions of femininity and contemporary cultural icons."
   },
   {
     "name": "Diary of a Young Naturalist",
@@ -41,15 +40,5 @@
     "image": "Island.png",
     "discussion_date": "Feb 2022",
     "description": "Girl, Woman, Other follows the lives and struggles of twelve very different characters. Mostly women, black and British, they tell the stories of their families, friends and lovers, across the country and through the years."
-  },
-  {
-    "name": "Heart's Invisible Furies",
-    "author_name": "xx",
-    "image": "Invisible.png"
-  },
-  {
-    "name": "The Summer I robbed a bank",
-    "author_name": "David O'Doherty",
-    "image": "/Summer.png"
   }
-  ]
+]
