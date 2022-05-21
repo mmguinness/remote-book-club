@@ -1,38 +1,60 @@
 <section class="section has-background-link-light">
   <div id="top-panel" class="columns">
-    <h1 class="title is-size-1 column is-one-quarter has-text-link">{{title}}</h1>
-      <div
-                id="main-container"
-                class="column is-three-quarters tile is-ancestor"
-              >
-    {{#each books}}     
-    <div class="books column is-2">
-      <img src="{{this.image}}"
-                     class="card-img-top" alt="..." width="100">
-      <div class="card-body">
-      </div>
-    </div>   
-    {{/each}}
+    <div class="column is-one-quarter has-text-link">
+      <h1 class="title is-size-1">{{title}}</h1>
+      <button
+        class="button is-large is-link"
+        title="Disabled button"
+        disabled
+      >+ add</button>
+      <button
+        class="button is-large is-link"
+        title="Disabled button"
+        disabled
+      >books</button>
+    </div>
+    <div id="main-container" class="column is-three-quarters tile is-ancestor">
+      {{#each books}}
+        <div class="books column is-2">
+          <img
+            src="{{this.image}}"
+            class="card-img-top"
+            alt="..."
+            width="100"
+          />
+          <div class="card-body">
+          </div>
+        </div>
+      {{/each}}
     </div>
   </div>
 </section>
-<br>
-  <section class="section">
-    <div id="main-panel" class="columns">
-      <div d="book-image-current"class="title column is-one-quarter">
-        <img width="300" src="{{books.[0].image}}" alt="Bookcover"> 
-      </div>
-      <br>
-      <div class="column is-three-quarters">
-        <div id="book-title-current" class="title is-2">{{books.[0].name}}</div>
-        <div id="author-name-current" class="subtitle is-4">{{books.[0].author_name}}</div>
-        <br>
-        <p class="subtitle is-5">Discussion Date:</p>
-        <div id="discussion-date-current" class="title is-5">{{books.[0].discussion_date}}</div>
-        <br>
-        <p class="subtitle is-5">Description:</p>
-        <div id="description-current" class="title is-5">{{books.[0].description}}</div>
-      </div>
+<br />
+<section class="section">
+  <div id="main-panel" class="columns">
+    <div d="book-image-current" class="title column is-one-quarter">
+      <img width="300" src="{{books.0.image}}" alt="Bookcover" />
     </div>
-    <script type="text/javascript" src="bundle.js"></script>
-   </section>
+    <br />
+    <div class="column is-three-quarters">
+      <div id="book-title-current" class="title is-2">{{books.0.name}}</div>
+      <div
+        id="author-name-current"
+        class="subtitle is-4"
+      >{{books.0.author_name}}</div>
+      <br />
+      <p class="subtitle is-5">Discussion Date:</p>
+      <div
+        id="discussion-date-current"
+        class="title is-5"
+      >{{books.0.discussion_date}}</div>
+      <br />
+      <p class="subtitle is-5">Description:</p>
+      <div
+        id="description-current"
+        class="title is-5"
+      >{{books.0.description}}</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="bundle.js"></script>
+</section>
