@@ -13,6 +13,8 @@ hbs.registerHelper(hbshelpers);
 app.set("view engine", "hbs");
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(express.json());
+
 // route setup
 app.use("/", homeRouter);
 app.use("/history", historyRouter);
