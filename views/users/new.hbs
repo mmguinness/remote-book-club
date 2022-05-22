@@ -2,9 +2,9 @@
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
       <h1 class="title is-size-1">{{title}}</h1>
-      <button class="button is-large is-link" title="Disabled button" disabled>+
+      <button class="button is-medium is-link" title="Disabled button" disabled>+
         Add</button>
-      <a href="/history"><button class="button is-large is-link"><p
+      <a href="/history"><button class="button is-medium is-link"><p
           >Books</p></button></a>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
@@ -31,18 +31,21 @@
     <br>
 
     <div class="column is-three-quarters">
+
+      <h5 class="title is-size-5">Sign up to {{title}} to become a member and suggest a book.</h5>
+
       <form id="new-user-form" action="/users" method="post">
         <div class="field">
           <label class="label">Name</label>
           <div class="control">
-            <input class="input" id="name" type="text" placeholder="What would you like as your username?" required>
+            <input class="input is-link" id="name" type="text" placeholder="What would you like as your username?" required>
           </div>
         </div>
 
         <div class="field">
           <label class="label">Email</label>
           <div class="control">
-            <input class="input" id="email" name="email" type="email" placeholder="e.g. reader@example.com" required>
+            <input class="input is-link" id="email" name="email" type="email" placeholder="reader@example.com" required>
           </div>
         </div>
 
@@ -51,11 +54,11 @@
           <div class="control">
             <input class="input" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="password" type="password" name="password" required>
           </div>
-          <p class="help">Must contain an uppercase letter, a lowercase letter, a number and have minimum eight characters</p>
+          <p class="help">Must contain an uppercase letter, a lowercase letter, a number and have minimum eight characters.</p>
         </div>
 
         <div class="control">
-          <button class="button is-link">Submit</button>
+          <button class="button is-link">Sign up</button>
         </div>
       </form>
   </div>
