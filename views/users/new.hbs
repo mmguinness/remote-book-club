@@ -27,36 +27,42 @@
 <section class="section">
   <div id="main-panel" class="columns">
     <div d="book-image-current" class="title column is-one-quarter">
-      
     </div>
-    <br />
+    <br>
+
     <div class="column is-three-quarters">
       <form id="new-user-form" action="/users" method="post">
-        <div class="mb-3 mt-3">
-          <label class="form-label" for="email">Email: </label>
-          <input class="form-control" id="email" type="email" name="email" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="name">Name</label>
-          <input class="form-control" id="name" type="text" name="name" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="password">Password: </label>
-          <input class="form-control" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="password" type="password" name="password" required>
-          <div class="hidden" id="validation-message">
-            <h6>Password must contain the following:</h6>
-            <span id="letter" class="invalid">A <b>lowercase</b> letter</span>
-            <br>
-            <span id="capital" class="invalid">A <b>capital (uppercase)</b> letter</span>
-            <br>
-            <span id="number" class="invalid">A <b>number</b></span>
-            <br>
-            <span id="length" class="invalid">Minimum <b>8 characters</b></span>
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input class="input" id="name" type="text" placeholder="What would you like as your username?" required>
           </div>
         </div>
-        <input class="btn btn-primary" id="submit" type="submit" value="Submit">
+
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input class="input" id="email" name="email" type="email" placeholder="e.g. reader@example.com" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="password" type="password" name="password" required>
+          </div>
+          <p class="help">Must contain an uppercase letter, a lowercase letter, a number and have minimum eight characters</p>
+        </div>
+
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
       </form>
-      <p>Got an account? <a href="/sessions/new">Log In Here</a></p>
   </div>
   <script type="text/javascript" src="bundle.js"></script>
 </section>
+
+
+
+
+
