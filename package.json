@@ -4,7 +4,7 @@
   "description": "Book Club Website",
   "main": "/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:test": "PORT=3030 MONGODB_URL='mongodb://127.0.0.1/book-club_test' npm start",
     "lint": "eslint .",
     "start": "nodemon ./bin/www",
     "build": "esbuild ./app.js --bundle  --outfile=bundle.js --watch",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/mmguinness/remote-book-club#readme",
   "dependencies": {
     "bulma": "^0.9.4",
+    "dotenv": "^16.0.1",
     "esbuild": "^0.14.38",
     "express": "^4.18.1",
     "handlebars-helpers": "^0.9.8",

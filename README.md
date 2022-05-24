@@ -7,9 +7,10 @@ A simple website to host a remote book club. Users can log in to add suggestions
 ### Work in progress screenshot
 
 Current status, MVP achieved(with hardcoded info):
+
 - WIP - Homepage.
 
-![](./images/Work-in-progress-220521_01.png) 
+![](./images/Work-in-progress-220521_01.png)
 
 - WIP - All book details, history page.
 
@@ -24,7 +25,7 @@ Current status, MVP achieved(with hardcoded info):
 - [Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/) JavaScript runtime environment.
 - [Express](https://expressjs.com/) web framework for Node.js.
 - [Nodemon](https://nodemon.io/) to reload the server automatically.
-- [Handlebars](https://handlebarsjs.com/) for serverside rendering to generate the HTML. [Reference](https://stackabuse.com/guide-to-handlebars-templating-engine-for-node/) tutorial. 
+- [Handlebars](https://handlebarsjs.com/) for serverside rendering to generate the HTML. [Reference](https://stackabuse.com/guide-to-handlebars-templating-engine-for-node/) tutorial.
 - [Bulma](https://bulma.io/documentation) for CSS styling the HTML.
 - [Mongoose](https://mongoosejs.com) to model objects in MongoDB.
 - [Jest](https://jestjs.io/) to write and run unit tests.
@@ -32,8 +33,7 @@ Current status, MVP achieved(with hardcoded info):
 
 ![](./images/Diagram_01.png)
 
-Adding Handlebars template engine to the tech stack with Node.js and Express, allows me to create a Server Side Rendered (SSR) web application. The template for the webpage is defined and then, based on the current requirement and the query to the database(hardcoded to start with), the template is populated with received content. The template engine generates the HTML on the server side and then this static rendered webpage is displayed in the browser. 
-
+Adding Handlebars template engine to the tech stack with Node.js and Express, allows me to create a Server Side Rendered (SSR) web application. The template for the webpage is defined and then, based on the current requirement and the query to the database(hardcoded to start with), the template is populated with received content. The template engine generates the HTML on the server side and then this static rendered webpage is displayed in the browser.
 
 ### Functionality
 
@@ -60,8 +60,6 @@ I would like to be able see all previous remote-book-club selected books
 ```
 
 ![](./images/wireframeMVP.png)
-
-
 
 <br>
 
@@ -102,4 +100,3 @@ I would like to recieve an email reminder the morning of a book discussion with 
 ```
 
 ![](./images/wireframeAdditional.png)
-

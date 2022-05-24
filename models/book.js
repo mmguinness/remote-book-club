@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const BookSchema = new mongoose.Schema(
+const books = new mongoose.Schema(
   {
     name: String,
     author_name: String,
@@ -11,6 +11,6 @@ const BookSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const BookData = mongoose.model("BookData", BookSchema);
+const BookData = mongoose.model("BookData", books);
 
 module.exports = BookData;
