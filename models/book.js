@@ -1,16 +1,11 @@
 const mongoose = require("mongoose");
 
-const books = new mongoose.Schema(
-  {
-    name: String,
-    author_name: String,
-    image: String,
-    iscussion_date: String,
-    description: String,
-  },
-  { timestamps: true }
-);
+const BookSchema = new mongoose.Schema({
+  bookTitle: String,
+  author: String,
+  bookCover: String,
+});
 
-const BookData = mongoose.model("BookData", books);
+const Book = mongoose.model("Book", BookSchema);
 
-module.exports = BookData;
+module.exports = Book;

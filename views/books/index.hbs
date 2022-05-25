@@ -1,0 +1,47 @@
+<section class="section has-background-link-light">
+  <div id="top-panel" class="columns">
+    <div class="column is-one-quarter has-text-link">
+      <h1 class="title is-size-1">Book Club</h1>
+
+      <a href="/books/new"><button class="button is-medium is-link"><p>+ Add</p></button></a>
+      <div>
+      </div>
+    </div>
+    <div id="main-container" class="column is-three-quarters tile is-ancestor">
+    </div>
+  </div>
+</section>
+<br />
+<section class="section">
+  {{#each books}}
+    <div id="main-panel" class="columns">
+      <div d="book-image-current" class="title column is-one-quarter">
+                <div
+          id="book-cover"
+          class="subtitle is-4"
+        >{{this.bookCover}}</div>
+      </div>
+      <br />
+      <div class="column is-three-quarters">
+        <div id="book-title-current" class="title is-2">{{this.bookTitle}}</div>
+        <div
+          id="author-name-current"
+          class="subtitle is-4"
+        >{{this.author}}</div>
+        <br />
+        <p class="subtitle is-5">Discussion Date:</p>
+        <div
+          id="discussion-date-current"
+          class="title is-5"
+        >TBC</div>
+        <br />
+        <p class="subtitle is-5">Description:</p>
+        <div
+          id="description-current"
+          class="title is-5"
+        >TBC</div>
+      </div>
+    </div>
+  {{/each}}
+  <script type="text/javascript" src="bundle.js"></script>
+</section>

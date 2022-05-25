@@ -1,0 +1,55 @@
+<section class="section has-background-link-light">
+  <div id="top-panel" class="columns">
+    <div class="column is-one-quarter has-text-link">
+      <h1 class="title is-size-1">Book Club</h1>
+      <button class="button is-medium is-link" title="Disabled button" disabled>+
+        Add</button>
+      <a href="/history"><button class="button is-medium is-link"><p
+          >Books</p></button></a>
+    </div>
+    <div id="main-container" class="column is-three-quarters tile is-ancestor">
+
+    </div>
+  </div>
+</section>
+<br />
+<section class="section">
+  <div id="main-panel" class="columns">
+    <div d="book-image-current" class="title column is-one-quarter">
+    </div>
+    <br>
+
+    <div class="column is-three-quarters">
+
+      <h5 class="title is-size-5">Suggest a book.</h5>
+
+      <form id="new-book-form" action="/books" method="post">
+        <div class="field">
+          <label class="label">Book Title</label>
+          <div class="control">
+            <input class="input is-link" id="bookTitle" name="bookTitle" type="text" >
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Author</label>
+          <div class="control">
+            <input class="input is-link" id="author" name="author" name="author" type="text" >
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">bookCover</label>
+          <div class="control">
+            <input class="input is-link" id="bookCover" name="bookCover" type="text" >
+          </div>
+        </div>
+
+        <div class="control">
+          <button class="button is-link" type="submit" value="Submit">Submit</button>
+        </div>
+      </form>
+  </div>
+  <script type="text/javascript" src="bundle.js"></script>
+</section>
+
