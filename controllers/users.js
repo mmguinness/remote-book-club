@@ -7,17 +7,29 @@ const UsersController = {
 
   Create: (req, res) => {
     const user = new User({
-      userName: req.body.userName,
       email: req.body.email,
       password: req.body.password,
+      userName: req.body.userName,
     });
-    user.save((err) => {
+    User.findOne({ email: user.email }, function (err, person) {
       if (err) {
         throw err;
       }
-      res.status(201).redirect("/");
+      if (person) {
+        const message = "This email is already in use, please try again";
+        return res.redirect(`/users/new?message=${message}`);
+      } else {
+        user.save((err) => {
+          if (err) {
+            throw err;
+          }
+          req.session.user = user;
+          res.status(201).redirect("/books");
+        });
+      }
     });
-  }
+  },
 };
 
 module.exports = UsersController;
+

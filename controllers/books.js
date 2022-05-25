@@ -1,19 +1,20 @@
 const Book = require("../models/book");
 
 const BooksController = {
+  
   Index: (req, res) => {
-
-    Book.find({}, "bookCover author bookTitle", (err, books) => {
-      if (err) {
-        throw err;
+    Book.find(
+      {},
+      "message createdAt",
+      { sort: { createdAt: -1 } },
+      (err, books) => {
+        if (err) {
+          throw err;
+        }
+        res.render("books/index", { books: books });
       }
-      res.render("books/index", { books: books });
-    })
-      .populate("bookCover")
-      .populate("author")
-      .populate("bookTitle");
-      },
-
+    ).populate("user");
+  },
 
   New: (req, res) => {
     res.render("books/new", {});
@@ -21,18 +22,29 @@ const BooksController = {
 
   Create: (req, res) => {
     const book = new Book({
-      bookTitle: req.body.bookTitle,
+      user: req.session.user._id,
       author: req.body.author,
+      bookTitle: req.body.bookTitle,
       bookCover: req.body.bookCover,
     });
-    book.save((err) => {
+    Book.findOne({ bookTitle: book.bookTitle }, function (err, item) {
       if (err) {
         throw err;
       }
-      res.status(201).redirect("/books");
+      if (item) {
+        const message = "This title is already in use, please enter a new title";
+        return res.redirect(`/books/new?message=${message}`);
+      } else {
+        book.save((err) => {
+          if (err) {
+            throw err;
+          }
+          req.session.user = book;
+          res.status(201).redirect("/books");
+        });
+      }
     });
   },
-
 };
 
 module.exports = BooksController;

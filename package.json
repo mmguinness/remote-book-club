@@ -22,14 +22,22 @@
   "homepage": "https://github.com/mmguinness/remote-book-club#readme",
   "dependencies": {
     "bulma": "^0.9.4",
-    "dotenv": "^16.0.1",
     "esbuild": "^0.14.38",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
     "express": "^4.18.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
     "handlebars-helpers": "^0.9.8",
     "hbs": "^4.1.0",
+    "http-errors": "~1.6.3",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
     "jest-environment-jsdom": "^28.1.0",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.4",
+    "morgan": "~1.9.1",
     "serve": "^13.0.2"
   },
   "devDependencies": {

@@ -2,21 +2,21 @@
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
       <h1 class="title is-size-1">Book Club</h1>
-      <a href="/users/new"><button class="button is-medium is-link"><p>+ Add</p></button></a>
-      <a href="/history"><button class="button is-medium is-link"><p>Books</p></button></a>
-      <p class="help">You are not signed in.</p>
+
+  {{# if session.user }}
+  <p class="help">Hello {{session.user.userName}}</p>
+  <form action='/sessions?_method=DELETE' method='POST'>
+    <input class="button" type="submit" value="Log Out">
+  </form>
+  {{else}}
+  <a href="/sessions/new"><button class="button is-medium is-link"><p>Log in</p></button></a>
+  <a href="/users/new"><button class="button is-medium is-link"><p>Sign up</p></button></a>
+  {{/if}}
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
       {{#each books}}
         <div class="books column is-2">
-          <a href="/history">
-          <img
-            src="{{this.books.image}}"
-            class="card-img-top"
-            alt="..."
-            width="100"
-          />
-          </a>
+          <div>{{this.message}}</div>
         </div>
       {{/each}}
     </div>
@@ -49,5 +49,5 @@
       >{{books.0.description}}</div>
     </div>
   </div>
-  <script type="text/javascript" src="bundle.js"></script>
+
 </section>

@@ -1,16 +1,16 @@
 <section class="section has-background-link-light">
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
-      <h1 class="title is-size-1">{{title}}</h1>
+      <h1 class="title is-size-1">BookClub</h1>
       <button class="button is-medium is-link" title="Disabled button" disabled>+
         Add</button>
-      <a href="/history"><button class="button is-medium is-link"><p
+      <a href="/books/"><button class="button is-medium is-link"><p
           >Books</p></button></a>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
       {{#each books}}
         <div class="books column is-2">
-          <a href="/history">
+          <a href="/books/">
             <img
               src="{{this.image}}"
               class="card-img-top"
@@ -62,7 +62,7 @@
         </div>
       </form>
   </div>
-  <script type="text/javascript" src="bundle.js"></script>
+  
 </section>
 
 

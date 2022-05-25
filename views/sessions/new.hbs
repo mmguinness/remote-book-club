@@ -1,0 +1,45 @@
+<section class="section has-background-link-light">
+  <div id="top-panel" class="columns">
+    <div class="column is-one-quarter has-text-link">
+      <h1 class="title is-size-1">Book Club</h1>
+    </div>
+    <div id="main-container" class="column is-three-quarters tile is-ancestor">
+
+    </div>
+  </div>
+</section>
+<br />
+<section class="section">
+  <div id="main-panel" class="columns">
+    <div d="book-image-current" class="title column is-one-quarter">
+    </div>
+    <br>
+    <div class="column is-three-quarters">
+
+      <h5 class="title is-size-5">Log in</h5>
+
+      <form id="new-session-form" action="/sessions" method="post">
+
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input class="input is-link" id="email" name="email" type="email" >
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input is-link" id="password" name="password" type="password" >
+          </div>
+        </div>
+
+        <div class="control">
+          <button class="button is-link" type="submit" value="Submit">Submit</button>
+        </div>
+      </form>
+      <p>Not got an account? <a href="/users/new">Click Here</a></p>
+  </div>
+
+</section>
+

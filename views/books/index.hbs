@@ -2,8 +2,17 @@
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
       <h1 class="title is-size-1">Book Club</h1>
-
-      <a href="/books/new"><button class="button is-medium is-link"><p>+ Add</p></button></a>
+{{# if session.user }}
+  <p class="subtitle is-4">Hello {{session.user.userName}}</p>
+  <form action='/sessions?_method=DELETE' method='POST'>
+    <input class="button is-medium is-link" type="submit" value="Log Out">
+  </form>
+  <a href="/books/new"><button class="button is-medium is-link"><p>+ Add</p></button></a>
+  {{else}}
+  <a href="/sessions/new"><button class="button is-medium is-link"><p>Log in</p></button></a>
+  <a href="/users/new"><button class="button is-medium is-link"><p>Sign up</p></button></a>
+  {{/if}}
+      
       <div>
       </div>
     </div>
@@ -23,11 +32,11 @@
       </div>
       <br />
       <div class="column is-three-quarters">
-        <div id="book-title-current" class="title is-2">{{this.bookTitle}}</div>
+        <div id="book-title-current" class="title is-2"> {{this.books.bookTitle}} </div>
         <div
           id="author-name-current"
           class="subtitle is-4"
-        >{{this.author}}</div>
+        >{{this.book.author}} testing</div>
         <br />
         <p class="subtitle is-5">Discussion Date:</p>
         <div
@@ -43,5 +52,5 @@
       </div>
     </div>
   {{/each}}
-  <script type="text/javascript" src="bundle.js"></script>
+
 </section>

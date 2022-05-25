@@ -1,16 +1,19 @@
-const bookData = require("../models/book");
+const Book = require("../models/book");
 
 const HomeController = {
   Index: (req, res) => {
-    bookData.find((err, books) => {
-      if (err) {
-        throw err;
+    Book.find(
+      {},
+      "message createdAt",
+      { sort: { createdAt: -1 } },
+      (err, books) => {
+        if (err) {
+          throw err;
+        }
+        res.render("home/index", { books: books });
       }
-      res.render("home/index", { books: books });
-    });
-    },
+    ).populate("user");
+  },
 };
 
 module.exports = HomeController;
-
-
