@@ -1,11 +1,16 @@
 const mongoose = require("mongoose");
+const imagePath = "images";
+const path = require("path");
 const moment = require("moment");
 
 const BookSchema = new mongoose.Schema(
   {
     bookTitle: String,
     author: String,
-    bookCover: String,
+    bookCover: {
+      type: String,
+      default: "placeholderBook.png",
+    },
     description: {
       type: String,
       default: "Add description",
@@ -19,6 +24,12 @@ const BookSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+BookSchema.virtual("imagePath").get(function () {
+  if (this.image != null) {
+    return path.join("/", imagePath, this.image);
+  }
+});
 
 BookSchema.virtual("timeFormat").get(function () {
   const today = new Date();
@@ -38,3 +49,4 @@ BookSchema.virtual("timeFormat").get(function () {
 const Book = mongoose.model("Book", BookSchema);
 
 module.exports = Book;
+module.exports.imagePath = imagePath;

@@ -7,7 +7,6 @@ const BooksController = {
       if (err) {
         throw err;
       }
-
       res.render("books/index", { books: books });
     });
   },

@@ -1,0 +1,8 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "env": {
+    "MONGODB_URI": "mongodb://localhost:3000",
+    "MONGODB_DATABASE": "Book Club Test",
+    "MONGODB_COLLECTION": "book-club_test"
+  }
+}
