@@ -3,7 +3,6 @@ const moment = require("moment");
 
 const BookSchema = new mongoose.Schema(
   {
-    message: String,
     bookTitle: String,
     author: String,
     bookCover: String,
