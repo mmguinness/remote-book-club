@@ -4,21 +4,24 @@
 
 A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. Read me about how I started to built it [here](https://mmguinness.github.io/portfolio/portfolio/2022/05/12/Model-view-controller.html).
 
-### Work in progress screenshot
+### Work in progress screenshots
 
-Current status, MVP achieved(with hardcoded info):
+Current status, MVP achieved. Sign-in and log-in functions added. Working from local MongoDB database. Can add book suggestion through form.
 
 - WIP - Homepage.
 
-![](./images/Work-in-progress-220521_01.png)
+![](./images/Work-in-progress-220526-home.png)
 
-- WIP - All book details, history page.
+- WIP - Log in & Sign up
 
-![](./images/Work-in-progress-220521_02.png)
+![](./images/Work-in-progress-220526-signup.png)
+![](./images/Work-in-progress-220526-login.png)
+![](./images/Work-in-progress-220526-history.png)
 
-- WIP - Become a member, sign-up page.
+- WIP - Add a book suggestion, book added to list.
 
-![](./images/Work-in-progress-220522.png)
+![](./images/Work-in-progress-220526-addbook.png)
+![](./images/Work-in-progress-220526-bookadded.png)
 
 ### Tech Stack
 

@@ -2,16 +2,16 @@
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
       <h1 class="title is-size-1">Book Club</h1>
-  <p class="subtitle is-4">Hello {{session.user.userName}}</p>
-  <form action='/sessions?_method=DELETE' method='POST'>
+  {{!-- <form action='/sessions?_method=DELETE' method='POST'>
     <input class="button is-medium is-link" type="submit" value="Log Out">
-  </form>
+  </form> --}}
+  <a href="/books/new"><button class="button is-medium is-link"><p>Add a book</p></button></a>
       <div>
       </div>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
         <div class="books column is-2">
-           <a href="/books/new"><button class="button is-medium is-link"><p>+ book</p></button></a>
+          <img src="{{books.0.bookCover}}" width="100">
         </div>
         <div class="books column is-2">
           <img src="{{books.1.bookCover}}" width="100">

@@ -4,8 +4,9 @@
       <h1 class="title is-size-1">Book Club</h1>
       <p class="subtitle is-4">Logged in as {{session.user.userName}}</p>
       <a href="/books"><button class="button is-medium is-link"><p
-          >Books</p></button></a><form action='/sessions?_method=DELETE' method='POST'>
-        <input class="button is-medium is-link" type="submit" value="Log Out">
+          >Back</p></button></a>
+          {{!-- <form action='/sessions?_method=DELETE' method='POST'>
+        <input class="button is-medium is-link" type="submit" value="Log Out"> --}}
       </form>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
@@ -46,13 +47,13 @@
           </div>
         </div>
 
-        <div class="field">
+        {{!-- <div class="field">
           <label class="label">Reason</label>
           <div class="control">
             <input class="input is-link" id="reason" name="reason" type="text" >
             <p class="help"> Optional </p>
           </div>
-        </div>
+        </div> --}}
 
         <div class="control">
           <button class="button is-link" type="submit" >Submit</button>
