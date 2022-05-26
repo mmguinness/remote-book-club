@@ -4,8 +4,10 @@ require("../mongodb_helper");
 var Book = require("../../models/book");
 const User = require("../../models/user");
 describe("Book model", () => {
-  beforeEach(async () => {
-    await mongoose.connection.collections.books.remove({});
+  beforeEach((done) => {
+    mongoose.connection.collections.books.drop(() => {
+      done();
+    });
   });
 
   it("has the properties of a book", () => {
