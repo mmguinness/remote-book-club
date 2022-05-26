@@ -7,6 +7,15 @@ const BookSchema = new mongoose.Schema(
     bookTitle: String,
     author: String,
     bookCover: String,
+    description: {
+      type: String,
+      default: "Add description",
+    },
+    discussionDate: {
+      type: String,
+      default: "TBC",
+    },
+    resaon: String,
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }

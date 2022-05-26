@@ -29,26 +29,27 @@
           id="book-cover"
           class="subtitle is-4"
         >{{this.bookCover}}</div>
+        <img src="{{this.image}}" width="300">
       </div>
       <br />
       <div class="column is-three-quarters">
-        <div id="book-title-current" class="title is-2"> {{this.books.bookTitle}} </div>
+        <div id="book-title-current" class="title is-2"> {{this.bookTitle}} </div>
         <div
           id="author-name-current"
           class="subtitle is-4"
-        >{{this.book.author}} testing</div>
+        >{{this.author}}</div>
         <br />
         <p class="subtitle is-5">Discussion Date:</p>
         <div
           id="discussion-date-current"
           class="title is-5"
-        >TBC</div>
+        >{{this.discussionDate}}</div>
         <br />
         <p class="subtitle is-5">Description:</p>
         <div
           id="description-current"
           class="title is-5"
-        >TBC</div>
+        >{{this.description}}</div>
       </div>
     </div>
   {{/each}}

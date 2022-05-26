@@ -3,17 +3,13 @@ const Book = require("../models/book");
 const BooksController = {
   
   Index: (req, res) => {
-    Book.find(
-      {},
-      "message createdAt",
-      { sort: { createdAt: -1 } },
-      (err, books) => {
-        if (err) {
-          throw err;
-        }
-        res.render("books/index", { books: books });
+    Book.find((err, books) => {
+      if (err) {
+        throw err;
       }
-    ).populate("user");
+
+      res.render("books/index", { books: books });
+    });
   },
 
   New: (req, res) => {
@@ -25,7 +21,8 @@ const BooksController = {
       user: req.session.user._id,
       author: req.body.author,
       bookTitle: req.body.bookTitle,
-      bookCover: req.body.bookCover,
+      description: req.body.description,
+      reason: req.body.reason,
     });
     Book.findOne({ bookTitle: book.bookTitle }, function (err, item) {
       if (err) {

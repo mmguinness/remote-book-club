@@ -16,7 +16,7 @@
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
       {{#each books}}
         <div class="books column is-2">
-          <div>{{this.message}}</div>
+          <div>{{this.bookTitle}}</div>
         </div>
       {{/each}}
     </div>
@@ -30,24 +30,24 @@
     </div>
     <br />
     <div class="column is-three-quarters">
-      <div id="book-title-current" class="title is-2">{{books.0.name}}</div>
-      <div
-        id="author-name-current"
-        class="subtitle is-4"
-      >{{books.0.author_name}}</div>
-      <br />
-      <p class="subtitle is-5">Discussion Date:</p>
-      <div
-        id="discussion-date-current"
-        class="title is-5"
-      >{{books.0.discussion_date}}</div>
-      <br />
-      <p class="subtitle is-5">Description:</p>
-      <div
-        id="description-current"
-        class="title is-5"
-      >{{books.0.description}}</div>
-    </div>
+         <div id="book-title-current" class="title is-2"> {{books.0.bookTitle}} </div>
+        <div
+          id="author-name-current"
+          class="subtitle is-4"
+        >{{books.0.author}}</div>
+        <br />
+        <p class="subtitle is-5">Discussion Date:</p>
+        <div
+          id="discussion-date-current"
+          class="title is-5"
+        >{{books.0.discussionDate}}</div>
+        <br />
+        <p class="subtitle is-5">Description:</p>
+        <div
+          id="description-current"
+          class="title is-5"
+        >{{books.0.description}}</div>
+      </div>
   </div>
 
 </section>

@@ -1,18 +1,15 @@
 const Book = require("../models/book");
 
 const HomeController = {
+
   Index: (req, res) => {
-    Book.find(
-      {},
-      "message createdAt",
-      { sort: { createdAt: -1 } },
-      (err, books) => {
-        if (err) {
-          throw err;
-        }
-        res.render("home/index", { books: books });
+    Book.find((err, books) => {
+      if (err) {
+        throw err;
       }
-    ).populate("user");
+
+      res.render("home/index", { books: books });
+    });
   },
 };
 
