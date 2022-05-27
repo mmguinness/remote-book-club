@@ -2,32 +2,21 @@
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
       <h1 class="title is-size-1">Book Club</h1>
-  <a href="/sessions/new"><button class="button is-medium is-link"><p>Log in</p></button></a>
-  <a href="/users/new"><button class="button is-medium is-link"><p>Sign up</p></button></a>
+      <a href="/sessions/new"><button class="button is-medium is-link"><p>Log in</p></button></a>
+      <a href="/users/new"><button class="button is-medium is-link"><p>Sign up</p></button></a>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
+      {{#each books}}
         <div class="books column is-2">
-          <img src="{{books.0.bookCover}}" width="100">
+          <a href="/books?selectedBook={{this._id}}">
+            <img src="{{this.bookCover}}" width="100" />
+          </a>
         </div>
-        <div class="books column is-2">
-          <img src="{{books.1.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.2.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.3.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.4.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.5.bookCover}}" width="100">
-        </div>
+      {{/each}}
     </div>
   </div>
 </section>
-<br/>
+<br />
 <section class="section">
   <div id="main-panel" class="columns">
     <div d="book-image-current" class="title column is-one-quarter">
@@ -35,24 +24,26 @@
     </div>
     <br />
     <div class="column is-three-quarters">
-         <div id="book-title-current" class="title is-2"> {{books.0.bookTitle}} </div>
-        <div
-          id="author-name-current"
-          class="subtitle is-4"
-        >{{books.0.author}}</div>
-        <br />
-        <p class="subtitle is-5">Discussion Date:</p>
-        <div
-          id="discussion-date-current"
-          class="title is-5"
-        >{{books.0.discussionDate}}</div>
-        <br />
-        <p class="subtitle is-5">Description:</p>
-        <div
-          id="description-current"
-          class="title is-5"
-        >{{books.0.description}}</div>
+      <div id="book-title-current" class="title is-2">
+        {{books.0.bookTitle}}
       </div>
+      <div
+        id="author-name-current"
+        class="subtitle is-4"
+      >{{books.0.author}}</div>
+      <br />
+      <p class="subtitle is-5">Discussion Date:</p>
+      <div
+        id="discussion-date-current"
+        class="title is-5"
+      >{{books.0.discussionDate}}</div>
+      <br />
+      <p class="subtitle is-5">Description:</p>
+      <div
+        id="description-current"
+        class="title is-5"
+      >{{books.0.description}}</div>
+    </div>
   </div>
 
 </section>

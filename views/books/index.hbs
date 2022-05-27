@@ -6,58 +6,48 @@
     <input class="button is-medium is-link" type="submit" value="Log Out">
   </form> --}}
   <a href="/books/new"><button class="button is-medium is-link"><p>Add a book</p></button></a>
+  <a href="/books/suggestions"><button class="button is-medium is-link"><p>Suggestions</p></button></a>
       <div>
       </div>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
+      {{#each books}}
         <div class="books column is-2">
-          <img src="{{books.0.bookCover}}" width="100">
+          <a href="/books?selectedBook={{this._id}}">
+            <img src="{{this.bookCover}}" width="100" />
+          </a>
         </div>
-        <div class="books column is-2">
-          <img src="{{books.1.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.2.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.3.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.4.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.5.bookCover}}" width="100">
-        </div>
-    </div>
+      {{/each}}
 </section>
 <br />
 <section class="section">
-  {{#each books}}
+  {{!-- {{#each books}} --}}
+  {{!-- {{#if bookContent }} --}}
     <div id="main-panel" class="columns">
       <div d="book-image-current" class="title column is-one-quarter">
-        <img src="{{this.bookCover}}" width="300">
+        <img src="{{bookContent.bookCover}}" width="300">
       </div>
       <br />
       <div class="column is-three-quarters">
-        <div id="book-title-current" class="title is-2"> {{this.bookTitle}} </div>
+        <div id="book-title-current" class="title is-2"> {{bookContent.bookTitle}} </div>
         <div
           id="author-name-current"
           class="subtitle is-4"
-        >{{this.author}}</div>
+        >{{bookContent.author}}</div>
         <br />
         <p class="subtitle is-5">Discussion Date:</p>
         <div
           id="discussion-date-current"
           class="title is-5"
-        >{{this.discussionDate}}</div>
+        >{{bookContent.discussionDate}}</div>
         <br />
         <p class="subtitle is-5">Description:</p>
         <div
           id="description-current"
           class="title is-5"
-        >{{this.description}}</div>
+        >{{bookContent.description}}</div>
       </div>
     </div>
-  {{/each}}
+  {{!-- {{/each}} --}}
 
 </section>

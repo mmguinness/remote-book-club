@@ -21,6 +21,7 @@ const BookSchema = new mongoose.Schema(
     },
     resaon: String,
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    selected: false,
   },
   { timestamps: true }
 );
