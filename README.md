@@ -10,7 +10,7 @@ Current status, MVP achieved. Sign-in and log-in functions added. Working from l
 
 - WIP - Homepage.
 
-![](./images/Work-in-progress-220526-home.png)
+![](./images/Work-in-progress-220526-Home.png)
 
 - WIP - Log in & Sign up
 
