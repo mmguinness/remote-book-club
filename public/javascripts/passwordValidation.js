@@ -1,4 +1,4 @@
-÷
+
 // passwordInput.onfocus = function() {
 //   document.getElementById("validation-message").classList.remove("hidden")
 // }

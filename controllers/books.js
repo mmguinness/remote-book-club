@@ -1,6 +1,6 @@
 const Book = require("../models/book");
 
-const NUMBER_OF_BOOKS_TO_SHOW = 3;
+const NUMBER_OF_BOOKS_TO_SHOW = 6;
 
 const BooksController = {
   Index: (req, res) => {
@@ -11,11 +11,11 @@ const BooksController = {
       if (err) {
         throw err;
       }
-      console.log({ books: books.slice(0, NUMBER_OF_BOOKS_TO_SHOW) });
+      // console.log({ books: books.slice(0, NUMBER_OF_BOOKS_TO_SHOW) });
       res.render("books/index", {
         books: books.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
         bookContent:
-          books.filter(({ _id }) => _id === query?.selectedBook)?.[0] ||
+          books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
           books[0] ||
           {},
       });
@@ -31,33 +31,13 @@ const BooksController = {
       body: { author, bookTitle, description, reason },
     } = req;
 
-    const bookIn = {
-      author: 'luke',
-      bookTitle: 'hackers',
-      description: 'L33T',
-      reason: 'no',
-    };
-
-    const {reason, ...bookOut} = bookIn
-    
-
-
-
-    const bookOut = bookIn
-    delete bookIn.reason
-
-
-    const {} bookOut 
-
-    console.log(bookOut);
-
-    const book = new Book({
+    const book = {
       user: req.session.user._id,
       author,
       bookTitle,
       description,
       reason,
-    });
+    };
 
     Book.findOne({ bookTitle }, function (err, existingBook) {
       if (err) {
@@ -72,7 +52,7 @@ const BooksController = {
           if (err) {
             throw err;
           }
-          // req.session.user = book;
+          req.session.user = book;
           console.log("saving...");
           res.status(201).redirect("/books");
         });
