@@ -19,7 +19,10 @@ const BookSchema = new mongoose.Schema(
       type: String,
       default: "TBC",
     },
-    resaon: String,
+    resaon: {
+      type: String,
+      default: "Give a reason why you think the group should read this title",
+    },
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     selected: false,
   },

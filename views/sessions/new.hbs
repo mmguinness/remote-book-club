@@ -1,9 +1,10 @@
 <section class="section has-background-link-light">
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
-      <h1 class="title is-size-1">Book Club</h1>
-      <a href="/users/new"><button class="button is-medium is-link"><p>Sign up</p></button></a>
-      <a href="/"><button class="button is-medium is-link"><p>Home</p></button></a> 
+      <a href="/books"><h1 class="title is-size-1">Book Club</h1></a>
+      <h1 class="subtitle is-size-3">Log in</h1>
+      {{!-- <a href="/users/new"><button class="button is-medium is-link"><p>Sign up</p></button></a>
+      <a href="/"><button class="button is-medium is-link"><p>Home</p></button></a>  --}}
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
   
@@ -17,8 +18,6 @@
     </div>
     <br>
     <div class="column is-three-quarters">
-
-      <h5 class="title is-size-5">Log in</h5>
 
       <form id="new-session-form" action="/sessions" method="post">
 
@@ -41,6 +40,9 @@
         </div>
       </form>
   </div>
-
+ <p id="error">{{message}}</p>
+  {{# if message}}
+  <iframe src="https://giphy.com/embed/njYrp176NQsHS" width="480" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  {{/if}}
 </section>
 

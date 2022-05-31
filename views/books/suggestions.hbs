@@ -1,62 +1,60 @@
-<section class="section has-background-link-light">
+<section class="section has-background-warning-light">
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
-      <h1 class="title is-size-1">Book Club</h1>
-  <form action='/sessions?_method=DELETE' method='POST'>
+      <a href="/books"><h1 class="title is-size-1">Book Club</h1></a>
+      <h1 class="subtitle is-size-3">Suggested:</h1>
+  {{!-- <form action='/sessions?_method=DELETE' method='POST'>
     <input class="button is-medium is-link" type="submit" value="Log Out">
-  </form>
-      <div>
-      </div>
+  </form> --}}
+      
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
+      <div class="books column is-2">
+        <a href="/books/new"><button class="button is-medium is-warning"><p>+ book</p></button></a>
+      </div>
+      {{#each moreBooks}}
         <div class="books column is-2">
-           <a href="/books/new"><button class="button is-medium is-link"><p>+ book</p></button></a>
+          <a href="/books/suggestions?selectedBook={{this._id}}">
+            <img class="card" src="{{this.bookCover}}" width="100px" />
+          </a>
         </div>
-        <div class="books column is-2">
-          <img src="{{books.1.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.2.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.3.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.4.bookCover}}" width="100">
-        </div>
-        <div class="books column is-2">
-          <img src="{{books.5.bookCover}}" width="100">
-        </div>
+      {{/each}}
+      <button class="button is-link">
+        >
+      </button>
     </div>
 </section>
 <br />
 <section class="section">
-  {{#each books}}
-    <div id="main-panel" class="columns">
-      <div d="book-image-current" class="title column is-one-quarter">
-        <img src="{{this.bookCover}}" width="300">
+  <div id="main-panel" class="columns">
+    <div d="book-image-current" class="title column is-one-quarter">
+      <img src="{{bookContent.bookCover}}" width="300" />
+    </div>
+    <br />
+    <div class="column is-three-quarters">
+      <div id="book-title-current" class="title is-2">
+        {{bookContent.bookTitle}}
+      </div>
+      <div id="author-name-current" class="subtitle is-4">
+        {{bookContent.author}}
       </div>
       <br />
-      <div class="column is-three-quarters">
-        <div id="book-title-current" class="title is-2"> {{this.bookTitle}} </div>
-        <div
-          id="author-name-current"
-          class="subtitle is-4"
-        >{{this.author}}</div>
-        <br />
-        <p class="subtitle is-5">Discussion Date:</p>
-        <div
-          id="discussion-date-current"
-          class="title is-5"
-        >{{this.discussionDate}}</div>
-        <br />
-        <p class="subtitle is-5">Description:</p>
-        <div
-          id="description-current"
-          class="title is-5"
-        >{{this.description}}</div>
+      <p class="title is-5">
+        Suggested by {{session.user.userName}}
+      </p>
+      <p class="subtitle is-5">
+        Reason:
+      </p>
+      <div id="reason" class="title is-5">
+        {{bookContent.reason}}
+      </div>
+      <br />
+      <p class="subtitle is-5">
+        Description:
+      </p>
+      <div id="description-current" class="title is-5">
+        {{bookContent.description}}
       </div>
     </div>
-  {{/each}}
-
+  </div>
 </section>

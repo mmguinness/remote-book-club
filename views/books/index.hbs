@@ -1,57 +1,65 @@
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./style.css" />
 <section class="section has-background-link-light">
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
-      <h1 class="title is-size-1">Book Club</h1>
-      {{!-- <form action='/sessions?_method=DELETE' method='POST'>
-        <input class="button is-medium is-link" type="submit" value="Log Out">
-      </form> --}}
-      {{!-- <a href="/books/new"><button class="button is-medium is-link"><p>Add a book</p></button></a> --}}
-      {{!-- <a href="/books/suggestions"><button class="button is-medium is-link"><p>Suggestions</p></button></a> --}}
+      <h1 class="title is-size-1">
+        Book Club
+      </h1>
+      <h1 class="subtitle is-size-3">
+        Read:
+      </h1>
+      <a href="/sessions/new">
+        <button class="button is-medium is-link">
+          <p>
+            Suggestions
+          </p>
+        </button>
+      </a>
+      {{! <a href="/books/suggestions"><button class="button is-medium is-link"><p>Suggestions</p></button></a> }}
     </div>
-    <div id="main-container" class="column is-three-quarters tile is-ancestor" >
-
-        {{#each books}}
-          <div class="books column is-2">
-            <a href="/books?selectedBook={{this._id}}">
-              <img class="card" src="{{this.bookCover}}" width="100px" />
-            </a>
-          </div>
-        {{/each}}
-
+    <div id="main-container" class="column is-three-quarters tile is-ancestor">
+      {{#each books}}
+        <div class="books column is-2">
+          <a href="/books?selectedBook={{this._id}}">
+            <img class="card" src="{{this.bookCover}}" width="100px" />
+          </a>
+        </div>
+      {{/each}}
+      <button class="button is-link">
+        >
+      </button>
     </div>
   </div>
 </section>
 <br />
 <section class="section">
-  {{!-- {{#each books}} --}}
   {{!-- {{#if bookContent }} --}}
-    <div id="main-panel" class="columns">
-      <div d="book-image-current" class="title column is-one-quarter">
-        <img src="{{bookContent.bookCover}}" width="300">
+  <div id="main-panel" class="columns">
+    <div d="book-image-current" class="title column is-one-quarter">
+      <img src="{{bookContent.bookCover}}" width="300" />
+    </div>
+    <br />
+    <div class="column is-three-quarters">
+      <div id="book-title-current" class="title is-2">
+        {{bookContent.bookTitle}}
+      </div>
+      <div id="author-name-current" class="subtitle is-4">
+        {{bookContent.author}}
       </div>
       <br />
-      <div class="column is-three-quarters">
-        <div id="book-title-current" class="title is-2"> {{bookContent.bookTitle}} </div>
-        <div
-          id="author-name-current"
-          class="subtitle is-4"
-        >{{bookContent.author}}</div>
-        <br />
-        <p class="subtitle is-5">Discussion Date:</p>
-        <div
-          id="discussion-date-current"
-          class="title is-5"
-        >{{bookContent.discussionDate}}</div>
-        <br />
-        <p class="subtitle is-5">Description:</p>
-        <div
-          id="description-current"
-          class="title is-5"
-        >{{bookContent.description}}</div>
+      <p class="subtitle is-5">
+        Discussion Date:
+      </p>
+      <div id="discussion-date-current" class="title is-5">
+        {{bookContent.discussionDate}}
+      </div>
+      <br />
+      <p class="subtitle is-5">
+        Description:
+      </p>
+      <div id="description-current" class="title is-5">
+        {{bookContent.description}}
       </div>
     </div>
-  {{!-- {{/each}} --}}
-
+  </div>
 </section>
-<script src="/javascripts/carousel.js"></script>
