@@ -2,11 +2,9 @@
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-warning">
       <h1 class="title is-size-1">Book Club</h1>
-      <p class="subtitle is-4">Logged in as {{user.userName}}</p>
+      <p class="subtitle is-4">Logged in as {{session.userName}}</p>
       <a href="/books/suggestions"><button class="button is-medium is-warning"><p
           >Back</p></button></a>
-          {{!-- <form action='/sessions?_method=DELETE' method='POST'>
-        <input class="button is-medium is-link" type="submit" value="Log Out"> --}}
       </form>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
@@ -14,14 +12,28 @@
     </div>
   </div>
 </section>
-<br />
 <section class="section">
   <div id="main-panel" class="columns">
-    <div d="book-image-current" class="title column is-one-quarter">
+    <div d="book-image-current" class="column is-one-quarter">
+      <br>
+      <div class="file is-boxed">
+        <label class="file-label">
+          <input class="file-input" type="file" name="resume">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Book cover image.
+              <br>
+              Choose a file…
+            </span>
+          </span>
+        </label>
+      </div>
+      <p class="help">Optional</p>
     </div>
-    <br>
     <div class="column is-three-quarters">
-
       <form id="new-book-form" action="/books" method="post">
         <div class="field">
           <label class="label">Title</label>
@@ -29,21 +41,18 @@
             <input class="input is-warning" id="bookTitle" name="bookTitle" type="text" required>
           </div>
         </div>
-
         <div class="field">
           <label class="label">Author</label>
           <div class="control">
             <input class="input is-warning" id="author" name="author" type="text" required>
           </div>
         </div>
-
         <div class="field">
           <label class="label">Description</label>
           <div class="control">
             <input class="input is-warning" id="description" name="description" type="text" required>
           </div>
         </div>
-
         <div class="field">
           <label class="label">Reason</label>
           <div class="control">
@@ -51,12 +60,14 @@
             <p class="help"> Optional </p>
           </div>
         </div>
-
-        <div class="control">
-          <button class="button is-warning" type="submit" >Submit</button>
+        <div class="field">
+          <p class="control">
+            <a class="button is-warning" type="submit" >
+              Submit
+            </a>
+          </p>
         </div>
       </form>
+    </div>
   </div>
-
 </section>
-

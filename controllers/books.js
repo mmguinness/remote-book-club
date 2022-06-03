@@ -48,7 +48,7 @@ const BooksController = {
         monthIndex: filteredBooks.length + 6,
         bookContent:
           filteredBooks.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
-          books[7] ||
+          books[6] ||
           {},
       });
     });

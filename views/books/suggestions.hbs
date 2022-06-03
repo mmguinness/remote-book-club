@@ -24,9 +24,9 @@
         </div>
       {{/each}}
       <div class="column is-1">
-        <button class="next button is-warning">
+        {{!-- <button class="next button is-warning">
           >
-        </button>
+        </button> --}}
       </div>
     </div>
 </section>
@@ -51,13 +51,37 @@
       <div id="reason" class="title is-5">
         {{bookContent.reason}}
       </div>
-      <br />
+            <div class="field has-addons">
+        <div class="control">
+          <div class="select">
+            <select name="month">
+              <option value="Argentina">January</option>
+              <option value="Bolivia">February</option>
+              <option value="Brazil">March</option>
+              <option value="Chile">April</option>
+              <option value="Colombia">May</option>
+              <option value="Ecuador">June</option>
+              <option value="Guyana">July</option>
+              <option value="Paraguay">August</option>
+              <option value="Peru">September</option>
+              <option value="Suriname">October</option>
+              <option value="Uruguay">November</option>
+              <option value="Venezuela">December</option>
+              <option value="Venezuela"><strong>Delete suggestion</strong></option>
+            </select>
+          </div>
+        </div>
+        <div class="control">
+          <button type="submit" class="button is-warning">Choose</button>
+        </div>
+      </div>
       <p class="subtitle is-5">
         Description:
       </p>
       <div id="description-current" class="title is-5">
         {{bookContent.description}}
       </div>
+
     </div>
   </div>
 </section>
