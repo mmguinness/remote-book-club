@@ -3,13 +3,12 @@
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
       <a href="/books">
-      <h1 class="title is-size-1">
-        Book Club
-      </h1>
+        <h1 class="title is-size-1">
+          Book Club
+        </h1>
       </a>
       <h1 class="subtitle is-size-3">
-        Month:
-        {{monthIndex}}
+        Month: {{monthIndex}}
       </h1>
       <a href="/sessions/new">
         <button class="button is-medium is-link">
@@ -20,20 +19,20 @@
       </a>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
+      <a href="/books">
+        <button class="button is-medium is-link">
+          <p>
+            <
+          </p>
+        </button>
+      </a>
       {{#each books}}
         <div class="books column is-2">
-          <a href="/books?selectedBook={{this._id}}">
-            <img class="card" src="{{this.bookCover}}" width="100px" />
+          <a href="/books/more?selectedBook={{this._id}}">
+            <img class="card" src="/{{this.bookCover}}" width="100px" />
           </a>
         </div>
       {{/each}}
-      {{#nextButton}}
-        <form id="moreBooks-form" method="get" action="/books/more">
-          <button class="button is-link">
-            >
-          </button>
-        </form>
-      {{/nextButton}}
     </div>
   </div>
 </section>
@@ -41,7 +40,7 @@
 <section class="section">
   <div id="main-panel" class="columns">
     <div d="book-image-current" class="title column is-one-quarter">
-      <img src="{{bookContent.bookCover}}" width="300" />
+      <img src="/{{bookContent.bookCover}}" width="300" />
     </div>
     <br />
     <div class="column is-three-quarters">

@@ -2,12 +2,10 @@ const express = require("express");
 const createError = require("http-errors");
 const path = require("path");
 const app = express();
-
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const methodOverride = require("method-override");
-const homeRouter = require("./routes/home");
 const booksRouter = require("./routes/books");
 const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
@@ -63,10 +61,8 @@ const sessionChecker = (req, res, next) => {
 };
 
 // route setup
-app.use("/", homeRouter);
 app.use("/books", booksRouter);
 app.use("/sessions", sessionsRouter);
-
 app.use("/users", usersRouter);
 
 app.use(express.static(__dirname + "/images"));

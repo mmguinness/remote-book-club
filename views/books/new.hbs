@@ -2,7 +2,7 @@
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-warning">
       <h1 class="title is-size-1">Book Club</h1>
-      <p class="subtitle is-4">Logged in as {{session.user.userName}}</p>
+      <p class="subtitle is-4">Logged in as {{user.userName}}</p>
       <a href="/books/suggestions"><button class="button is-medium is-warning"><p
           >Back</p></button></a>
           {{!-- <form action='/sessions?_method=DELETE' method='POST'>
@@ -20,10 +20,7 @@
     <div d="book-image-current" class="title column is-one-quarter">
     </div>
     <br>
-
     <div class="column is-three-quarters">
-
-      <h5 class="title is-size-5">Suggest a book:</h5>
 
       <form id="new-book-form" action="/books" method="post">
         <div class="field">

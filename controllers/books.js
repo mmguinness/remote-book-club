@@ -1,32 +1,58 @@
 const Book = require("../models/book");
 
-const NUMBER_OF_BOOKS_TO_SHOW = 5;
+const NUMBER_OF_BOOKS_TO_SHOW = 6;
 
 const BooksController = {
-
-  // getting all books
   Index: (req, res) => {
     const { query } = req;
     console.log({ query });
-    
+
     Book.find((err, books) => {
       if (err) {
         throw err;
       }
+      const filteredBooks = books.filter(
+        (filteredByDate) => filteredByDate.discussionDate != "TBC"
+      );
+      let nextButton = false;
+      if (filteredBooks.length > 6) {
+        nextButton = true;
+      }
+
       res.render("books/index", {
-        books: books.filter(
-          filteredByDate =>
-            filteredByDate.discussionDate != "TBC"  
-        ),
+        books: filteredBooks.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
+        nextButton: nextButton,
+        monthIndex: filteredBooks.length,
         bookContent:
           books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
           books[0] ||
           {},
       });
     });
-
   },
-  
+
+  More: (req, res) => {
+    const { query } = req;
+    console.log({ query });
+
+    Book.find((err, books) => {
+      if (err) {
+        throw err;
+      }
+      const filteredBooks = books.filter(
+        (filteredByDate) => filteredByDate.discussionDate != "TBC"
+      ).slice(6, 12);
+ 
+      res.render("books/more", {
+        books: filteredBooks,
+        monthIndex: filteredBooks.length + 6,
+        bookContent:
+          filteredBooks.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
+          books[7] ||
+          {},
+      });
+    });
+  },
 
   New: (req, res) => {
     res.render("books/new", {});
@@ -76,8 +102,7 @@ const BooksController = {
       }
       res.render("books/suggestions", {
         books: books.filter(
-          filteredByDate =>
-            filteredByDate.discussionDate === "TBC"  
+          (filteredByDate) => filteredByDate.discussionDate === "TBC"
         ),
         // books: books.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
         // moreBooks: books.slice(
@@ -86,10 +111,11 @@ const BooksController = {
         // ),
         bookContent:
           books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
-          books[0] ||
+          books.filter(
+            (filteredByDate) => filteredByDate.discussionDate === "TBC"
+          )?.[0] ||
           {},
       });
-
     });
   },
   // Update a book from suggestion to selected
