@@ -19,7 +19,7 @@ const BookSchema = new mongoose.Schema(
       type: String,
       default: "TBC",
     },
-    resaon: {
+    reason: {
       type: String,
       default: "Give a reason why you think the group should read this title",
     },

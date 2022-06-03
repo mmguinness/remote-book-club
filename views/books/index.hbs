@@ -18,6 +18,7 @@
       {{! <a href="/books/suggestions"><button class="button is-medium is-link"><p>Suggestions</p></button></a> }}
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
+      
       {{#each books}}
         <div class="books column is-2">
           <a href="/books?selectedBook={{this._id}}">
@@ -25,9 +26,11 @@
           </a>
         </div>
       {{/each}}
+      <a href="/books/more">
       <button class="button is-link">
         >
       </button>
+      </a>
     </div>
   </div>
 </section>

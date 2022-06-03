@@ -27,8 +27,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
-
-
 app.use(express.json());
 app.use(
   session({
@@ -37,7 +35,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      expires: 600000,
+      expires: 600000000,
     },
   })
 );

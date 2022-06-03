@@ -1,27 +1,33 @@
 <section class="section has-background-warning-light">
   <div id="top-panel" class="columns">
-    <div class="column is-one-quarter has-text-link">
+    <div class="column is-3 has-text-link">
       <a href="/books"><h1 class="title is-size-1">Book Club</h1></a>
       <h1 class="subtitle is-size-3">Suggested:</h1>
   {{!-- <form action='/sessions?_method=DELETE' method='POST'>
     <input class="button is-medium is-link" type="submit" value="Log Out">
   </form> --}}
-      
-    </div>
-    <div id="main-container" class="column is-three-quarters tile is-ancestor">
       <div class="books column is-2">
         <a href="/books/new"><button class="button is-medium is-warning"><p>+ book</p></button></a>
       </div>
-      {{#each moreBooks}}
-        <div class="books column is-2">
+    </div>
+    <div id="main-container" class="column is-9 tile is-ancestor">
+      <div class="column is-1">
+        <button class="button is-warning">
+          <
+        </button>
+      </div>
+      {{#each books}}
+        <div class="previous books column is-2">
           <a href="/books/suggestions?selectedBook={{this._id}}">
             <img class="card" src="{{this.bookCover}}" width="100px" />
           </a>
         </div>
       {{/each}}
-      <button class="button is-link">
-        >
-      </button>
+      <div class="column is-1">
+        <button class="next button is-warning">
+          >
+        </button>
+      </div>
     </div>
 </section>
 <br />
@@ -39,11 +45,8 @@
         {{bookContent.author}}
       </div>
       <br />
-      <p class="title is-5">
-        Suggested by {{session.user.userName}}
-      </p>
       <p class="subtitle is-5">
-        Reason:
+        Suggested by {{session.user.userName}}:
       </p>
       <div id="reason" class="title is-5">
         {{bookContent.reason}}
