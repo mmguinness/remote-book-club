@@ -1,21 +1,24 @@
+<link rel="stylesheet" href="./style.css" />
 <section class="section has-background-warning-light">
   <div id="top-panel" class="columns">
     <div class="column is-3 has-text-link">
-      <a href="/books"><h1 class="title is-size-1">Book Club</h1></a>
-      <h1 class="subtitle is-size-3">Suggested:</h1>
-  {{!-- <form action='/sessions?_method=DELETE' method='POST'>
-    <input class="button is-medium is-link" type="submit" value="Log Out">
-  </form> --}}
-      <div class="books column is-2">
-        <a href="/books/new"><button class="button is-medium is-warning"><p>+ book</p></button></a>
-      </div>
+      <a href="/books">
+        <h1 class="title is-size-1">
+          Book Club
+        </h1>
+      </a>
+      <h1 class="subtitle is-size-3">
+        Suggested:
+      </h1>
+      <a href="/books/new">
+        <button class="button is-medium is-warning">
+          <p>
+            + book
+          </p>
+        </button>
+      </a>
     </div>
     <div id="main-container" class="column is-9 tile is-ancestor">
-      {{!-- <div class="column is-1">
-        <button class="button is-warning">
-          <
-        </button>
-      </div> --}}
       {{#each books}}
         <div class="previous books column is-2">
           <a href="/books/suggestions?selectedBook={{this._id}}">
@@ -23,12 +26,8 @@
           </a>
         </div>
       {{/each}}
-      <div class="column is-1">
-        {{!-- <button class="next button is-warning">
-          >
-        </button> --}}
-      </div>
     </div>
+  </div>
 </section>
 <br />
 <section class="section">
@@ -46,28 +45,29 @@
       </div>
       <br />
       <p class="subtitle is-5">
-        Suggested by {{session.user.userName}}:
+        Suggested by
+        {{session.user.userName}}:
       </p>
       <div id="reason" class="title is-5">
         {{bookContent.reason}}
       </div>
-            <div class="field has-addons">
+      <div class="field has-addons">
         <div class="control">
           <div class="select">
             <select name="month">
-              <option value="Argentina">January</option>
-              <option value="Bolivia">February</option>
-              <option value="Brazil">March</option>
-              <option value="Chile">April</option>
-              <option value="Colombia">May</option>
-              <option value="Ecuador">June</option>
-              <option value="Guyana">July</option>
-              <option value="Paraguay">August</option>
-              <option value="Peru">September</option>
-              <option value="Suriname">October</option>
-              <option value="Uruguay">November</option>
-              <option value="Venezuela">December</option>
-              <option value="Venezuela"><strong>Delete suggestion</strong></option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+              <option value="Delete suggestion">Delete suggestion</option>
             </select>
           </div>
         </div>
@@ -81,7 +81,6 @@
       <div id="description-current" class="title is-5">
         {{bookContent.description}}
       </div>
-
     </div>
   </div>
 </section>

@@ -86,7 +86,7 @@ const BooksController = {
           }
           req.session.user = book;
           console.log("saving...");
-          res.status(201).redirect("/books");
+          res.status(201).redirect("/books/suggestions");
         });
       }
     });
@@ -104,11 +104,6 @@ const BooksController = {
         books: books.filter(
           (filteredByDate) => filteredByDate.discussionDate === "TBC"
         ),
-        // books: books.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
-        // moreBooks: books.slice(
-        //   NUMBER_OF_BOOKS_TO_SHOW,
-        //   NUMBER_OF_BOOKS_TO_SHOW + NUMBER_OF_BOOKS_TO_SHOW
-        // ),
         bookContent:
           books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
           books.filter(

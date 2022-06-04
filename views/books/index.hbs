@@ -3,13 +3,12 @@
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
       <a href="/books">
-      <h1 class="title is-size-1">
-        Book Club
-      </h1>
+        <h1 class="title is-size-1">
+          Book Club
+        </h1>
       </a>
       <h1 class="subtitle is-size-3">
-        Month:
-        {{monthIndex}}
+        Month: {{monthIndex}}
       </h1>
       <a href="/sessions/new">
         <button class="button is-medium is-link">
@@ -29,7 +28,7 @@
       {{/each}}
       {{#nextButton}}
         <form id="moreBooks-form" method="get" action="/books/more">
-          <button class="button is-link">
+          <button class="button arrowbutton is-link">
             >
           </button>
         </form>

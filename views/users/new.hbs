@@ -1,23 +1,13 @@
 <section class="section has-background-link-light">
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
-      <h1 class="title is-size-1">
-        Book Club
-      </h1>
+      <a href="/books">
+        <h1 class="title is-size-1">
+          Book Club
+        </h1>
+      </a>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
-      {{#each books}}
-        <div class="books column is-2">
-          <a href="/books/">
-            <img
-              src="{{this.image}}"
-              class="card-img-top"
-              alt="..."
-              width="100"
-            />
-          </a>
-        </div>
-      {{/each}}
     </div>
   </div>
 </section>
@@ -30,33 +20,40 @@
     <div class="column is-three-quarters">
       <form id="new-user-form" action="/users" method="post">
         <div class="field">
-          <label class="label">Username</label>
+          <label class="label">
+            Username
+          </label>
           <div class="control">
-            <input class="input is-link" id="userName" name="userName" type="text" placeholder="What would you like as your username?" required>
+            <input class="input is-link" id="userName" name="userName" type="text" required>
           </div>
         </div>
-
         <div class="field">
-          <label class="label">Email</label>
+          <label class="label">
+            Email
+          </label>
           <div class="control">
-            <input class="input is-link" id="email" name="email" type="email" placeholder="reader@example.com" required>
+            <input class="input is-link" id="email" name="email" type="email" required>
           </div>
         </div>
-
         <div class="field">
-          <label class="label">Password</label>
+          <label class="label">
+            Password
+          </label>
           <div class="control">
             <input class="input  is-link" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="password" type="password" name="password" required>
           </div>
-          <p class="help">Must contain an uppercase letter, a lowercase letter, a number and have minimum eight characters.</p>
+          <p class="help">
+            Must contain an uppercase letter, a lowercase letter, a number and have minimum eight characters.
+          </p>
         </div>
-
         <div class="control">
-          <button class="button is-link">Sign up</button>
+          <button class="button is-link">
+            Sign up
+          </button>
         </div>
       </form>
+    </div>
   </div>
-  
 </section>
 
 

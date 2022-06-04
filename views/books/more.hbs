@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./style.css" />
+<link rel="stylesheet" href="./../style.css" />
 <section class="section has-background-link-light">
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-link">
@@ -8,7 +8,8 @@
         </h1>
       </a>
       <h1 class="subtitle is-size-3">
-        Month: {{monthIndex}}
+        Month:
+        {{monthIndex}}
       </h1>
       <a href="/sessions/new">
         <button class="button is-medium is-link">
@@ -19,13 +20,13 @@
       </a>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
-      <a href="/books">
-        <button class="button is-medium is-link">
-          <p>
-            <
-          </p>
+
+      <form id="books-form" method="get" action="/books">
+        <button class="arrowbutton button is-link">
+          <
         </button>
-      </a>
+      </form>
+
       {{#each books}}
         <div class="books column is-2">
           <a href="/books/more?selectedBook={{this._id}}">
@@ -33,6 +34,7 @@
           </a>
         </div>
       {{/each}}
+
     </div>
   </div>
 </section>

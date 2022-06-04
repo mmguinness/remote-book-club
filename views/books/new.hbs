@@ -1,14 +1,16 @@
 <section class="section has-background-warning-light">
   <div id="top-panel" class="columns">
     <div class="column is-one-quarter has-text-warning">
-      <h1 class="title is-size-1">Book Club</h1>
-      <p class="subtitle is-4">Logged in as {{session.userName}}</p>
-      <a href="/books/suggestions"><button class="button is-medium is-warning"><p
-          >Back</p></button></a>
-      </form>
+      <a href="/books/suggestions">
+        <h1 class="title is-size-1">
+          Book Club
+        </h1>
+      </a>
+      <p class="subtitle is-4">
+        Logged in as {{session.user.userName}}
+      </p>
     </div>
     <div id="main-container" class="column is-three-quarters tile is-ancestor">
-
     </div>
   </div>
 </section>
@@ -16,22 +18,6 @@
   <div id="main-panel" class="columns">
     <div d="book-image-current" class="column is-one-quarter">
       <br>
-      <div class="file is-boxed">
-        <label class="file-label">
-          <input class="file-input" type="file" name="resume">
-          <span class="file-cta">
-            <span class="file-icon">
-              <i class="fas fa-upload"></i>
-            </span>
-            <span class="file-label">
-              Book cover image.
-              <br>
-              Choose a file…
-            </span>
-          </span>
-        </label>
-      </div>
-      <p class="help">Optional</p>
     </div>
     <div class="column is-three-quarters">
       <form id="new-book-form" action="/books" method="post">
@@ -62,9 +48,9 @@
         </div>
         <div class="field">
           <p class="control">
-            <a class="button is-warning" type="submit" >
+            <button class="button is-warning" type="submit" value="Submit">
               Submit
-            </a>
+            </button>
           </p>
         </div>
       </form>
