@@ -5,7 +5,6 @@ const NUMBER_OF_BOOKS_TO_SHOW = 6;
 const BooksController = {
   Index: (req, res) => {
     const { query } = req;
-    console.log({ query });
 
     Book.find((err, books) => {
       if (err) {
@@ -15,7 +14,7 @@ const BooksController = {
         (filteredByDate) => filteredByDate.discussionDate != "TBC"
       );
       let nextButton = false;
-      if (filteredBooks.length > 6) {
+      if (filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW) {
         nextButton = true;
       }
 
@@ -33,29 +32,28 @@ const BooksController = {
 
   More: (req, res) => {
     const { query } = req;
-    console.log({ query });
 
     Book.find((err, books) => {
       if (err) {
         throw err;
       }
-      const filteredBooks = books.filter(
-        (filteredByDate) => filteredByDate.discussionDate != "TBC"
-      ).slice(6, 12);
- 
+      const filteredBooks = books
+        .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
+        .slice(6, 12);
+
       res.render("books/more", {
         books: filteredBooks,
-        monthIndex: filteredBooks.length + 6,
+        monthIndex: filteredBooks.length + NUMBER_OF_BOOKS_TO_SHOW,
         bookContent:
           filteredBooks.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
-          books[6] ||
+          books[NUMBER_OF_BOOKS_TO_SHOW] ||
           {},
       });
     });
   },
 
   New: (req, res) => {
-    res.render("books/new", {});
+    res.render("books/new", { message: req.query.message });
   },
 
   Create: (req, res) => {
@@ -73,11 +71,12 @@ const BooksController = {
 
     Book.findOne({ bookTitle }, function (err, existingBook) {
       if (err) {
-        throw err;
+        console.log(err);
       }
       if (existingBook) {
         const message =
           "This title is already in use, please enter a new title";
+        console.log(message);
         return res.redirect(`/books/new?message=${message}`);
       } else {
         book.save((err) => {
@@ -94,7 +93,6 @@ const BooksController = {
 
   Suggestion: (req, res) => {
     const { query } = req;
-    console.log({ query });
 
     Book.find((err, books) => {
       if (err) {
@@ -113,11 +111,45 @@ const BooksController = {
       });
     });
   },
+
   // Update a book from suggestion to selected
-  Selected: (req, res) => {},
+  AddBookSelectionDate: (req, res) => {
+    const {
+      body: { month },
+    } = req;
+
+    // not sure how to find the correct the id or bookTitle
+    // the rest is working to set the date when I give the bookTitle example below is Sherlock Holmes
+    Book.findOne({ bookTitle: "Sherlock Holmes" })
+      .exec()
+      .then((selectedBook) => {
+        selectedBook.discussionDate = month;
+        selectedBook.save();
+      })
+      .then(() => {
+        console.log("saving...");
+        res.status(201).redirect("/books/suggestions");
+      });
+  },
 
   // Delete a book from suggestions
-  Delete: (req, res) => {},
+  DeleteBookSuggestion: (req, res) => {
+
+    // not sure how to find the correct the id or bookTitle to delete
+    // the rest is working to delete a book, works when I give the bookTitle
+
+      Book.findOne({ bookTitle: "Test Title 2" })
+        .exec()
+        .then((selectedBook) => {
+          selectedBook.deleteOne();
+          selectedBook.save();
+        })
+        .then(() => {
+          console.log("saving...");
+          res.status(201).redirect("/books/suggestions");
+    });
+  },
+
 };
 
 module.exports = BooksController;

@@ -7,10 +7,10 @@ router.get("/", BooksController.Index);
 router.get("/more", BooksController.More);
 router.post("/", BooksController.Create);
 router.get("/new", BooksController.New);
+
 router.get("/suggestions", BooksController.Suggestion);
-// updating book from suggestions to selected
-// router.patch("/suggestions/", BooksController.Selected);
-// deleting book from suggestions 
-// router.delete("/suggestions/", BooksController.Delete);
+router.post("/suggestions", BooksController.AddBookSelectionDate);
+router.post("/delete", BooksController.DeleteBookSuggestion);
+
 
 module.exports = router;

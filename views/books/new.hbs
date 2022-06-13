@@ -27,6 +27,12 @@
             <input class="input is-warning" id="bookTitle" name="bookTitle" type="text" required>
           </div>
         </div>
+        {{#if message}}
+        <p>
+          {{message}}
+        </p>
+        <br>
+        {{/if}}
         <div class="field">
           <label class="label">Author</label>
           <div class="control">

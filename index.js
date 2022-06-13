@@ -61,7 +61,7 @@ const sessionChecker = (req, res, next) => {
 };
 
 // route setup
-app.use("/books", sessionChecker, booksRouter);
+app.use("/books", booksRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/users", usersRouter);
 
@@ -83,6 +83,8 @@ app.use((err, req, res) => {
   res.status(err.status || 500);
   res.render("error");
 });
+
+
 
 
 module.exports = app;
