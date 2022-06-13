@@ -1,10 +1,10 @@
+{{> header}}
 <section class="section">
   <div id="main-panel" class="columns">
     <div d="book-image-current" class="title column is-one-quarter">
     </div>
     <br>
     <div class="column is-three-quarters">
-
       <form id="new-session-form" action="/sessions" method="post">
 
         <div class="field">
@@ -25,8 +25,7 @@
           <button class="button is-link" type="submit" value="Submit">Log in</button>
         </div>
       </form>
-       <p class="help">Not got an account? <a href="/users/new">Click Here</a></p>
-  </div>
+    </div>
  <p id="error">{{message}}</p>
   {{#message}}
   <iframe src="https://giphy.com/embed/njYrp176NQsHS" width="480" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>

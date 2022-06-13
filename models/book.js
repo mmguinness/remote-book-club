@@ -9,7 +9,7 @@ const BookSchema = new mongoose.Schema(
     author: String,
     bookCover: {
       type: String,
-      default: "placeholderBook.png",
+      default: "/placeholderBook.png",
     },
     description: {
       type: String,

@@ -10,10 +10,10 @@ const BooksController = {
       if (err) {
         throw err;
       }
-      const filteredBooks = books.filter(
-        (filteredByDate) => filteredByDate.discussionDate != "TBC"
-      );
-      let suggestionsButton = true;
+      const filteredBooks = books
+        .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
+        .sort((a, b) => { return b.discussionDate - a.discussionDate});
+
       let nextButton = false;
       if (filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW) {
         nextButton = true;
@@ -22,8 +22,7 @@ const BooksController = {
       res.render("books/index", {
         books: filteredBooks.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
         nextButton: nextButton,
-        suggestionsButton: suggestionsButton,
-        monthIndex: filteredBooks.length,
+        suggestionsButton: true,
         bookContent:
           books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
           books[0] ||
@@ -41,21 +40,20 @@ const BooksController = {
       }
       const filteredBooks = books
         .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
+        .sort((a, b) => { return b.discussionDate - a.discussionDate})
         .slice(6, 12);
 
-      let previousButton = true;
-      let nextButton = false;
-      let suggestionsButton = true;
-
+      console.log(filteredBooks);
+      
       res.render("books/more", {
         books: filteredBooks,
-        monthIndex: filteredBooks.length + NUMBER_OF_BOOKS_TO_SHOW,
-        previousButton: previousButton,
-        suggestionsButton: suggestionsButton,
-        nextButton: nextButton,
+        previousButton: true,
+        suggestionsButton: true,
+        nextButton: false,
+        moreBooks: true,
         bookContent:
           filteredBooks.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
-          books[NUMBER_OF_BOOKS_TO_SHOW] ||
+          filteredBooks[0] ||
           {},
       });
     });
@@ -134,9 +132,13 @@ const BooksController = {
       body: { month },
     } = req;
 
+    const bookIdToChangeDate = req.query.selectedBook;
+    console.log(bookIdToChangeDate);
+    console.log(month);
+
     // not sure how to find the correct the id or bookTitle
     // the rest is working to set the date when I give the bookTitle example below is Sherlock Holmes
-    Book.findOne({ bookTitle: "Sherlock Holmes" })
+    Book.findOne({ _id: bookIdToChangeDate })
       .exec()
       .then((selectedBook) => {
         selectedBook.discussionDate = month;
@@ -150,11 +152,11 @@ const BooksController = {
 
   // Delete a book from suggestions
   DeleteBookSuggestion: (req, res) => {
+    
+    const bookIdToDelete = req.query.selectedBook;
+    console.log(bookIdToDelete);
 
-    // not sure how to find the correct the id or bookTitle to delete
-    // the rest is working to delete a book, works when I give the bookTitle
-
-      Book.findOne({ bookTitle: "Test Title 2" })
+      Book.findOne({ _id: bookIdToDelete })
         .exec()
         .then((selectedBook) => {
           selectedBook.deleteOne();
@@ -163,7 +165,7 @@ const BooksController = {
         .then(() => {
           console.log("saving...");
           res.status(201).redirect("/books/suggestions");
-    });
+        });
   },
 
 };

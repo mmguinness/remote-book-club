@@ -11,6 +11,7 @@ const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
 const hbshelpers = require("handlebars-helpers")();
 const hbs = require("hbs");
+const User = require("./models/user");
 
 hbs.registerHelper(hbshelpers);
 
@@ -92,5 +93,23 @@ hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear()
 })
 
+hbs.registerHelper("getCurrentMonth", () => {
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const d = new Date(); 
+  return month[d.getMonth()];
+});
 
 module.exports = app;

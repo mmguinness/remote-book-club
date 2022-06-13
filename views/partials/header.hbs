@@ -1,11 +1,5 @@
 <header>
-  {{#if addBookButton}}
-  <section class="section has-background-warning-light">
-  {{else if showUser}}
-  <section class="section has-background-warning-light">
-  {{else}}
   <section class="section has-background-link-light">
-  {{/if}}
     <div id="top-panel" class="columns">
       <div class="column is-one-quarter has-text-link">
         <a href="/books">
@@ -13,35 +7,20 @@
             Book Club
           </h1>
         </a>
-        {{#if addBookButton}}
+        {{#if suggestionsButton}}
         <h1 class="subtitle is-size-3">
-          Suggested:
-        </h1>
-        <a href="/books/new">
-          <button class="button is-medium is-warning">
-            <p>
-              + book
-            </p>
-          </button>
-        </a>
-        {{else if suggestionsButton}}
-        <h1 class="subtitle is-size-3">
-          Month: {{monthIndex}}
+          {{getCurrentMonth}} {{getCurrentYear}}
         </h1>
         <a href="/sessions/new">
           <button class="button is-medium is-link">
             <p>
-              Suggestions
+              Suggested Books
             </p>
           </button>
         </a>
-        {{else if showUser}}
-        <h1 class="subtitle is-3">
-        Logged in as {{session.user.userName}}
-        </h1>
         {{else}}
       <h1 class="subtitle is-size-3">
-        Log in / Sign up
+        <p><a href="/sessions/new">Log in / </a><a href="/users/new">Sign up</a></p>
       </h1>
         {{/if}}
     </div>
@@ -53,23 +32,23 @@
           </button>
         </form>
       {{/previousButton}}
-
-      
-        {{#each books}}
-          <div class="books column is-2">
-            {{#if previousButton}}
-            <a href="/books/more?selectedBook={{this._id}}">
-            {{else if addBookButton}}
-            <a href="/books/suggestions?selectedBook={{this._id}}">
-            {{else}}
-            <a href="/books?selectedBook={{this._id}}">
-            {{/if}}
-              <img class="card" src="/{{this.bookCover}}" width="100px" />
-            </a>
-          </div>
-        {{/each}}
-      
-
+      {{#if moreBooks}}
+      {{#each books}}
+        <div class="books column is-2">
+          <a href="/books/more?selectedBook={{this._id}}">
+            <img class="card" src="/{{this.bookCover}}" width="100px" />
+          </a>
+        </div>
+      {{/each}}
+      {{else}}
+      {{#each books}}
+        <div class="books column is-2">
+          <a href="/books?selectedBook={{this._id}}">
+            <img class="card" src="/{{this.bookCover}}" width="100px" />
+          </a>
+        </div>
+      {{/each}}
+      {{/if}}
       {{#nextButton}}
         <form id="moreBooks-form" method="get" action="/books/more">
           <button class="button arrowbutton is-link">
