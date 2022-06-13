@@ -15,13 +15,9 @@ Current status, MVP achieved. Sign-in and log-in functions added. Working from l
 - WIP - Log in & Sign up
 
 ![](./images/Work-in-progress-220526-signup.png)
-![](./images/Work-in-progress-220526-login.png)
+
 ![](./images/Work-in-progress-220526-history.png)
 
-- WIP - Add a book suggestion, book added to list.
-
-![](./images/Work-in-progress-220526-addbook.png)
-![](./images/Work-in-progress-220526-bookadded.png)
 
 ### Tech Stack
 
