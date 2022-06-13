@@ -18,6 +18,9 @@ hbs.registerHelper(hbshelpers);
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
+// hbs register helpers and partials
+hbs.registerPartials(__dirname + '/views/partials')
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -84,7 +87,10 @@ app.use((err, req, res) => {
   res.render("error");
 });
 
-
+// hbs helpers and partials
+hbs.registerHelper('getCurrentYear', () => {
+  return new Date().getFullYear()
+})
 
 
 module.exports = app;

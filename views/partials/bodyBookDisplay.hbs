@@ -1,0 +1,32 @@
+<bodyBookDisplay>
+  <section class="section">
+    <div id="main-panel" class="columns">
+      <div d="book-image-current" class="title column is-one-quarter">
+        <img src="/{{bookContent.bookCover}}" width="300" />
+      </div>
+      <br />
+      <div class="column is-three-quarters">
+        <div id="book-title-current" class="title is-2">
+          {{bookContent.bookTitle}}
+        </div>
+        <div id="author-name-current" class="subtitle is-4">
+          {{bookContent.author}}
+        </div>
+        <br />
+        <p class="subtitle is-5">
+          Monthly Pick:
+        </p>
+        <div id="discussion-date-current" class="title is-5">
+          {{bookContent.discussionDate}}
+        </div>
+        <br />
+        <p class="subtitle is-5">
+          Description:
+        </p>
+        <div id="description-current" class="title is-5">
+          {{bookContent.description}}
+        </div>
+      </div>
+    </div>
+  </section>
+</bodyBookDisplay>

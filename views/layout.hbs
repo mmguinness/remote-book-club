@@ -7,17 +7,15 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    {{> header}}
 
     {{{body}}}
 
-    <div id="rightsData">
-      Some text for reference
-    </div>
-
+    {{> footer}}
     <script src="/javascripts/passwordValidation.js"></script>
     <script src="/javascripts/main.js"></script>
-
   </body>
 </html>

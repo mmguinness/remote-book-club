@@ -1,34 +1,3 @@
-<section class="section has-background-warning-light">
-  <div id="top-panel" class="columns">
-    <div class="column is-3 has-text-link">
-      <a href="/books">
-        <h1 class="title is-size-1">
-          Book Club
-        </h1>
-      </a>
-      <h1 class="subtitle is-size-3">
-        Suggested:
-      </h1>
-      <a href="/books/new">
-        <button class="button is-medium is-warning">
-          <p>
-            + book
-          </p>
-        </button>
-      </a>
-    </div>
-    <div id="main-container" class="column is-9 tile is-ancestor">
-      {{#each books}}
-        <div class="previous books column is-2">
-          <a href="/books/suggestions?selectedBook={{this._id}}">
-            <img class="card" src="/{{this.bookCover}}" width="100px" />
-          </a>
-        </div>
-      {{/each}}
-    </div>
-  </div>
-</section>
-<br />
 <section class="section">
   <div id="main-panel" class="columns">
     <div d="book-image-current" class="title column is-one-quarter">

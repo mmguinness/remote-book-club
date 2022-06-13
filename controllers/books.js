@@ -13,6 +13,7 @@ const BooksController = {
       const filteredBooks = books.filter(
         (filteredByDate) => filteredByDate.discussionDate != "TBC"
       );
+      let suggestionsButton = true;
       let nextButton = false;
       if (filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW) {
         nextButton = true;
@@ -21,6 +22,7 @@ const BooksController = {
       res.render("books/index", {
         books: filteredBooks.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
         nextButton: nextButton,
+        suggestionsButton: suggestionsButton,
         monthIndex: filteredBooks.length,
         bookContent:
           books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
@@ -41,9 +43,16 @@ const BooksController = {
         .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
         .slice(6, 12);
 
+      let previousButton = true;
+      let nextButton = false;
+      let suggestionsButton = true;
+
       res.render("books/more", {
         books: filteredBooks,
         monthIndex: filteredBooks.length + NUMBER_OF_BOOKS_TO_SHOW,
+        previousButton: previousButton,
+        suggestionsButton: suggestionsButton,
+        nextButton: nextButton,
         bookContent:
           filteredBooks.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
           books[NUMBER_OF_BOOKS_TO_SHOW] ||
@@ -53,7 +62,10 @@ const BooksController = {
   },
 
   New: (req, res) => {
-    res.render("books/new", { message: req.query.message });
+    res.render("books/new", {
+       message: req.query.message,  
+       showUser: true,
+      });
   },
 
   Create: (req, res) => {
@@ -98,10 +110,14 @@ const BooksController = {
       if (err) {
         throw err;
       }
+
+      let addBookButton = true; 
+
       res.render("books/suggestions", {
         books: books.filter(
           (filteredByDate) => filteredByDate.discussionDate === "TBC"
         ),
+        addBookButton: addBookButton,
         bookContent:
           books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
           books.filter(
