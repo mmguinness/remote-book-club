@@ -2,9 +2,28 @@
 
 ## About
 
-A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. Read me about how I started to built it [here](https://mmguinness.github.io/portfolio/portfolio/2022/05/12/Model-view-controller.html).
+A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. 
 
-### Work in progress screenshots
+## Set up your own project locally
+
+1. Fork this repository.
+2. Clone your forked repository to your local machine.
+3. Navigate to server directory and install Node.js dependencies:
+   ```
+   npm install
+   ```
+4. Connect to a new MongoDB Atlas database. Any MongoDB database would be suffice although MongoDB Atlas is recommended. Please go to the MongoDB Atlas website and create an account for easy installation.
+Establish the connection in the 'App.js' file in the server directory.  
+5. Start the server
+   ```
+   npm start
+   ```
+6. Browse to [http://localhost:3000](http://localhost:3000)
+
+* Alternatively please visit the live website on Heroku: [placeholder for link](https://github.com/mmguinness/remote-book-club).
+* The website is designed for ipad / laptop viewing due to expected use.
+
+## Work in progress screenshots
 
 Current status, MVP achieved. Sign-in and log-in functions added. Working from local MongoDB database. Can add book suggestion through form.
 
