@@ -12,6 +12,7 @@ const BooksController = {
       }
       const filteredBooks = books
         .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
+        // This needs to sort by date, but currently passing in months as a string.
         .sort((a, b) => { return b.discussionDate - a.discussionDate});
 
       let nextButton = false;
@@ -31,6 +32,7 @@ const BooksController = {
     });
   },
 
+  // This "more"books page is almost a repetition of the page above but not sure how else to do it with 6 results per page. 
   More: (req, res) => {
     const { query } = req;
 
@@ -42,11 +44,10 @@ const BooksController = {
         .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
         .sort((a, b) => { return b.discussionDate - a.discussionDate})
         .slice(6, 12);
-
-      console.log(filteredBooks);
       
       res.render("books/more", {
         books: filteredBooks,
+        // These booleans control what is shown in the page header
         previousButton: true,
         suggestionsButton: true,
         nextButton: false,
@@ -86,7 +87,6 @@ const BooksController = {
       if (existingBook) {
         const message =
           "This title is already in use, please enter a new title";
-        console.log(message);
         return res.redirect(`/books/new?message=${message}`);
       } else {
         book.save((err) => {
@@ -109,13 +109,11 @@ const BooksController = {
         throw err;
       }
 
-      let addBookButton = true; 
-
       res.render("books/suggestions", {
         books: books.filter(
           (filteredByDate) => filteredByDate.discussionDate === "TBC"
         ),
-        addBookButton: addBookButton,
+        addBookButton: true,
         bookContent:
           books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
           books.filter(
@@ -133,11 +131,7 @@ const BooksController = {
     } = req;
 
     const bookIdToChangeDate = req.query.selectedBook;
-    console.log(bookIdToChangeDate);
-    console.log(month);
 
-    // not sure how to find the correct the id or bookTitle
-    // the rest is working to set the date when I give the bookTitle example below is Sherlock Holmes
     Book.findOne({ _id: bookIdToChangeDate })
       .exec()
       .then((selectedBook) => {
@@ -149,12 +143,10 @@ const BooksController = {
         res.status(201).redirect("/books/suggestions");
       });
   },
-
-  // Delete a book from suggestions
+ 
   DeleteBookSuggestion: (req, res) => {
     
     const bookIdToDelete = req.query.selectedBook;
-    console.log(bookIdToDelete);
 
       Book.findOne({ _id: bookIdToDelete })
         .exec()
