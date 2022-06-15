@@ -94,7 +94,7 @@ hbs.registerHelper('getCurrentYear', () => {
 })
 
 hbs.registerHelper("getCurrentMonth", () => {
-  const month = [
+  const months = [
     "January",
     "February",
     "March",
@@ -109,7 +109,28 @@ hbs.registerHelper("getCurrentMonth", () => {
     "December",
   ];
   const d = new Date(); 
-  return month[d.getMonth()];
+  return months[d.getMonth()];
 });
+
+// An arrow function does not create its own this context, which is required here.
+hbs.registerHelper("getSelectedMonth", function(month) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+ 
+  return months[month.getMonth()];
+});
+
 
 module.exports = app;

@@ -5,6 +5,20 @@ const NUMBER_OF_BOOKS_TO_SHOW = 6;
 const BooksController = {
   Index: (req, res) => {
     const { query } = req;
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
 
     Book.find((err, books) => {
       if (err) {
@@ -12,8 +26,12 @@ const BooksController = {
       }
       const filteredBooks = books
         .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
-        // This needs to sort by date, but currently passing in months as a string.
-        .sort((a, b) => { return b.discussionDate - a.discussionDate});
+        .sort((a, b) => {
+            let dateA = new Date(a.discussionDate);
+            let dateB = new Date(b.discussionDate);
+          return dateB - dateA;
+        });
+
 
       let nextButton = false;
       if (filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW) {
@@ -32,7 +50,7 @@ const BooksController = {
     });
   },
 
-  // This "more"books page is almost a repetition of the page above but not sure how else to do it with 6 results per page. 
+  // This "more"books page is almost a repetition of the page above but not sure how else to do it with 6 results per page.
   More: (req, res) => {
     const { query } = req;
 
@@ -42,9 +60,13 @@ const BooksController = {
       }
       const filteredBooks = books
         .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
-        .sort((a, b) => { return b.discussionDate - a.discussionDate})
+        .sort((a, b) => {
+            let dateA = new Date(a.discussionDate);
+            let dateB = new Date(b.discussionDate);
+          return dateB - dateA;
+        })
         .slice(6, 12);
-      
+
       res.render("books/more", {
         books: filteredBooks,
         // These booleans control what is shown in the page header
@@ -62,9 +84,9 @@ const BooksController = {
 
   New: (req, res) => {
     res.render("books/new", {
-       message: req.query.message,  
-       showUser: true,
-      });
+      message: req.query.message,
+      showUser: true,
+    });
   },
 
   Create: (req, res) => {
@@ -132,10 +154,12 @@ const BooksController = {
 
     const bookIdToChangeDate = req.query.selectedBook;
 
+    let selectedDate = new Date(2022, month, 1);
+
     Book.findOne({ _id: bookIdToChangeDate })
       .exec()
       .then((selectedBook) => {
-        selectedBook.discussionDate = month;
+        selectedBook.discussionDate = selectedDate;
         selectedBook.save();
       })
       .then(() => {
@@ -143,23 +167,21 @@ const BooksController = {
         res.status(201).redirect("/books/suggestions");
       });
   },
- 
+
   DeleteBookSuggestion: (req, res) => {
-    
     const bookIdToDelete = req.query.selectedBook;
 
-      Book.findOne({ _id: bookIdToDelete })
-        .exec()
-        .then((selectedBook) => {
-          selectedBook.deleteOne();
-          selectedBook.save();
-        })
-        .then(() => {
-          console.log("saving...");
-          res.status(201).redirect("/books/suggestions");
-        });
+    Book.findOne({ _id: bookIdToDelete })
+      .exec()
+      .then((selectedBook) => {
+        selectedBook.deleteOne();
+        selectedBook.save();
+      })
+      .then(() => {
+        console.log("saving...");
+        res.status(201).redirect("/books/suggestions");
+      });
   },
-
 };
 
 module.exports = BooksController;

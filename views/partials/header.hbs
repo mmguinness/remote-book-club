@@ -33,13 +33,13 @@
         </form>
       {{/previousButton}}
       {{#if moreBooks}}
-      {{#each books}}
+        {{#each books}}
         <div class="books column is-2">
           <a href="/books/more?selectedBook={{this._id}}">
             <img class="card" src="/{{this.bookCover}}" width="100px" />
           </a>
         </div>
-      {{/each}}
+        {{/each}}
       {{else}}
       {{#each books}}
         <div class="books column is-2">

@@ -7,15 +7,16 @@
       
       <div class="column is-three-quarters">
         {{#if addBookButton}} 
+        
         <p class="title is-spaced is-4 has-text-success">
-          Suggested by Marie :  {{bookContent.reason}}
+          Suggested by Marie:  {{bookContent.reason}}
         </p>
-
-        {{else}}  
+        {{else}} 
+        {{#with bookContent}} 
         <p class="title is-spaced is-4 has-text-link">
-          {{bookContent.discussionDate}} Pick: 
+          {{formattedDate}} Pick: 
         </p>
-
+        {{/with}}
         {{/if}}
         <div id="book-title-current" class="title is-2">
           {{bookContent.bookTitle}}
@@ -39,18 +40,18 @@
             <div class="control">
               <div class="select">
                 <select name="month">
-                  <option value="Jan">January</option>
-                  <option value="Feb">February</option>
-                  <option value="Mar">March</option>
-                  <option value="Apr">April</option>
-                  <option value="May">May</option>
-                  <option value="Jun">June</option>
-                  <option value="Jul">July</option>
-                  <option value="Aug">August</option>
-                  <option value="Sep">September</option>
-                  <option value="Oct">October</option>
-                  <option value="Nov">November</option>
-                  <option value="Dec">December</option>
+                  <option value=0>January</option>
+                  <option value=1>February</option>
+                  <option value=2>March</option>
+                  <option value=3>April</option>
+                  <option value=4>May</option>
+                  <option value=5>June</option>
+                  <option value=6>July</option>
+                  <option value=7>August</option>
+                  <option value=8>September</option>
+                  <option value=9>October</option>
+                  <option value=10>November</option>
+                  <option value=11>December</option>
                 </select>
                 <input type="hidden" id="bookIdToChangeDate" value="{{bookContent._id}}"></input>
               </div>

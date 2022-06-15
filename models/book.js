@@ -29,26 +29,18 @@ const BookSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+BookSchema.virtual("formattedDate").get(function () {
+  if (this.discussionDate != "TBC") {
+    const formattedDate = moment(this.discussionDate).format("MMMM");
+    return `${formattedDate}`;
+  }
+});
+
 BookSchema.virtual("imagePath").get(function () {
   if (this.image != null) {
     return path.join("/", imagePath, this.image);
   }
 });
-
-BookSchema.virtual("timeFormat").get(function () {
-  const today = new Date();
-
-  if (
-    moment(this.createdAt).format("DD MMMM") === moment(today).format("DD MMMM")
-  ) {
-    return moment(this.createdAt).fromNow();
-  } else {
-    const formatedDate = moment(this.createdAt).format("DD MMMM");
-    const formatedTime = moment(this.createdAt).format("HH:MM");
-    return `${formatedDate} at ${formatedTime}`;
-  }
-});
-
 
 const Book = mongoose.model("Book", BookSchema);
 
