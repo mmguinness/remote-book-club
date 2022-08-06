@@ -7,10 +7,6 @@ const BookSchema = new mongoose.Schema(
   {
     bookTitle: String,
     author: String,
-    bookCover: {
-      type: String,
-      default: "placeholderBook.png",
-    },
     description: {
       type: String,
       default: "Add description",
@@ -22,6 +18,10 @@ const BookSchema = new mongoose.Schema(
     reason: {
       type: String,
       default: "Give a reason why you think the group should read this title",
+    },
+    bookCover: {
+      type: String,
+      default: "1Q6FwpmG4oclOewM0uId5gqFSkPaZcAcI",
     },
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     selected: false,

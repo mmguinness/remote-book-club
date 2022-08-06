@@ -25,7 +25,11 @@ const BooksController = {
         pageSize: NUMBER_OF_BOOKS_TO_SHOW,
       });
 
-      const showNextButton = filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW;
+      let showNextButton = false;
+      if (filteredBooks.lenght > NUMBER_OF_BOOKS_TO_SHOW) {
+        showNextButton = true;
+      }
+      // const showNextButton = filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW;
 
       res.render("books/index", {
         books: filteredBooks.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
@@ -83,7 +87,7 @@ const BooksController = {
 
   Create: (req, res) => {
     const {
-      body: { author, bookTitle, description, reason },
+      body: { author, bookTitle, description, reason, bookCover },
     } = req;
 
     const book = new Book({
@@ -92,6 +96,7 @@ const BooksController = {
       bookTitle,
       description,
       reason,
+      bookCover,
     });
 
     Book.findOne({ bookTitle }, function (err, existingBook) {
