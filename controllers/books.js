@@ -33,10 +33,7 @@ const BooksController = {
         });
 
 
-      let nextButton = false;
-      if (filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW) {
-        nextButton = true;
-      }
+      const nextButton = filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW;
 
       res.render("books/index", {
         books: filteredBooks.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
