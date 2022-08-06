@@ -2,7 +2,7 @@
   "name": "remote_book_club",
   "version": "1.0.0",
   "description": "Book Club Website",
-  "main": "/index.js",
+  "main": "index.js",
   "scripts": {
     "start:test": "PORT=3000 MONGODB_URL='mongodb://127.0.0.1/book-club_test' npm start",
     "lint": "eslint .",

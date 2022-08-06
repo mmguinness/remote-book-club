@@ -2,15 +2,20 @@ const User = require("../models/user");
 
 const UsersController = {
   New: (req, res) => {
-    res.render("users/new", { title: "Book Club", message: req.query.message });
+    res.render("users/new", { message: req.query.message });
   },
 
   Create: (req, res) => {
+    const {
+      body: { email, password, userName },
+    } = req;
+
     const user = new User({
-      email: req.body.email,
-      password: req.body.password,
-      userName: req.body.userName,
+      email,
+      password,
+      userName,
     });
+    
     User.findOne({ email: user.email }, function (err, person) {
       if (err) {
         throw err;

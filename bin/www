@@ -28,6 +28,7 @@ mongoose.connect(mongoDbUrl, {
 
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", () => console.log("Connected to Database"));
 
 /**
  * Create HTTP server.
@@ -96,6 +97,6 @@ function onError(error) {
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-  console.log("Now listening on " + bind);
+  console.log("Server has started, now listening on " + bind);
   debug("Listening on " + bind);
 }

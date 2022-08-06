@@ -1,0 +1,61 @@
+<header>
+  <section class="section has-background-link-light">
+    <div id="top-panel" class="columns">
+      <div class="column is-one-quarter has-text-link">
+        <a href="/books">
+          <h1 class="title is-size-1">
+            Book Club
+          </h1>
+        </a>
+        {{#if suggestionsButton}}
+        <h1 class="subtitle is-size-3">
+          {{getCurrentMonth}} {{getCurrentYear}}
+        </h1>
+        <a href="/sessions/new">
+          <button class="button is-medium is-link">
+            <p>
+              Suggested Books
+            </p>
+          </button>
+        </a>
+        {{else}}
+      <h1 class="subtitle is-size-3">
+        <p><a href="/sessions/new">Log in / </a><a href="/users/new">Sign up</a></p>
+      </h1>
+        {{/if}}
+    </div>
+    <div id="main-container" class="column is-three-quarters tile is-ancestor">
+      {{#previousButton}}
+        <form id="books-form" method="get" action="/books">
+          <button class="arrowbutton button is-link">
+            <
+          </button>
+        </form>
+      {{/previousButton}}
+      {{#if moreBooks}}
+        {{#each books}}
+        <div class="books column is-2">
+          <a href="/books/more?selectedBook={{this._id}}">
+            <img class="card" src="/{{this.bookCover}}" width="100px" />
+          </a>
+        </div>
+        {{/each}}
+      {{else}}
+      {{#each books}}
+        <div class="books column is-2">
+          <a href="/books?selectedBook={{this._id}}">
+            <img class="card" src="/{{this.bookCover}}" width="100px" />
+          </a>
+        </div>
+      {{/each}}
+      {{/if}}
+      {{#nextButton}}
+        <form id="moreBooks-form" method="get" action="/books/more">
+          <button class="button arrowbutton is-link">
+            >
+          </button>
+        </form>
+      {{/nextButton}}
+    </div>
+  </section>
+</header>

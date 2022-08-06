@@ -2,17 +2,16 @@ const express = require("express");
 const createError = require("http-errors");
 const path = require("path");
 const app = express();
-
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const methodOverride = require("method-override");
-const homeRouter = require("./routes/home");
 const booksRouter = require("./routes/books");
 const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
 const hbshelpers = require("handlebars-helpers")();
 const hbs = require("hbs");
+const User = require("./models/user");
 
 hbs.registerHelper(hbshelpers);
 
@@ -20,14 +19,15 @@ hbs.registerHelper(hbshelpers);
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
+// hbs register helpers and partials
+hbs.registerPartials(__dirname + '/views/partials')
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
-
-
 
 app.use(express.json());
 app.use(
@@ -37,7 +37,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      expires: 600000,
+      expires: 600000000,
     },
   })
 );
@@ -65,10 +65,8 @@ const sessionChecker = (req, res, next) => {
 };
 
 // route setup
-app.use("/", homeRouter);
-app.use("/books", sessionChecker, booksRouter);
+app.use("/books", booksRouter);
 app.use("/sessions", sessionsRouter);
-
 app.use("/users", usersRouter);
 
 app.use(express.static(__dirname + "/images"));
@@ -88,6 +86,50 @@ app.use((err, req, res) => {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
+});
+
+// hbs helpers and partials
+hbs.registerHelper('getCurrentYear', () => {
+  return new Date().getFullYear()
+})
+
+hbs.registerHelper("getCurrentMonth", () => {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const d = new Date(); 
+  return months[d.getMonth()];
+});
+
+// An arrow function does not create its own this context, which is required here.
+hbs.registerHelper("getSelectedMonth", function(month) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+ 
+  return months[month.getMonth()];
 });
 
 

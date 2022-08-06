@@ -1,0 +1,77 @@
+<bodyBookDisplay>
+  <section class="section">
+    <div id="main-panel" class="columns">
+      <div d="book-image-current" class="title column is-one-quarter">
+        <img src="/{{bookContent.bookCover}}" width="250" />
+      </div>
+      
+      <div class="column is-three-quarters">
+        {{#if addBookButton}} 
+        
+        <p class="title is-spaced is-4 has-text-success">
+          Suggested by Marie:  {{bookContent.reason}}
+        </p>
+        {{else}} 
+        {{#with bookContent}} 
+        <p class="title is-spaced is-4 has-text-link">
+          {{formattedDate}} Pick: 
+        </p>
+        {{/with}}
+        {{/if}}
+        <div id="book-title-current" class="title is-2">
+          {{bookContent.bookTitle}}
+        </div>
+        <div id="author-name-current" class="subtitle is-4">
+          {{bookContent.author}}
+        </div>
+        <br />
+        <p class="title is-4">
+          Description:
+        </p>
+        <div id="description-current" class="subtitle is-5">
+          {{bookContent.description}}
+        </div>
+      {{#addBookButton}}
+      <br />
+      <div class="field is-grouped">
+        <div class="control">
+        <form id="select-form" method="post" action="/books/suggestions?selectedBook={{bookContent._id}}">
+          <div class="field has-addons">
+            <div class="control">
+              <div class="select">
+                <select name="month">
+                  <option value=0>January</option>
+                  <option value=1>February</option>
+                  <option value=2>March</option>
+                  <option value=3>April</option>
+                  <option value=4>May</option>
+                  <option value=5>June</option>
+                  <option value=6>July</option>
+                  <option value=7>August</option>
+                  <option value=8>September</option>
+                  <option value=9>October</option>
+                  <option value=10>November</option>
+                  <option value=11>December</option>
+                </select>
+                <input type="hidden" id="bookIdToChangeDate" value="{{bookContent._id}}"></input>
+              </div>
+            </div>
+            <div class="control">
+              <button type="submit" class="button is-success">Select</button>
+            </div>
+          </div>
+        </form>
+        </div>
+        <div class="control">
+        <form id="delete-form" method="post" action="/books/delete?selectedBook={{bookContent._id}}">
+          <div class="control">
+            <button type="submit" class="button is-success">Remove</button>
+          </div>
+        </form>
+        </div>
+      </div>
+      {{/addBookButton}}
+      </div>
+    </div>
+  </section>
+</bodyBookDisplay>

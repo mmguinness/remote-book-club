@@ -2,33 +2,34 @@
 
 ## About
 
-A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. Read me about how I started to built it [here](https://mmguinness.github.io/portfolio/portfolio/2022/05/12/Model-view-controller.html).
+A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. 
 
-### Work in progress screenshots
+## Set up your own project locally
 
-Current status, MVP achieved. Sign-in and log-in functions added. Working from local MongoDB database. Can add book suggestion through form.
+1. Fork this repository.
+2. Clone your forked repository to your local machine.
+3. Navigate to server directory and install Node.js dependencies:
+   ```
+   npm install
+   ```
+4. Connect to a new MongoDB Atlas database. Any MongoDB database would be suffice although MongoDB Atlas is recommended. Please go to the MongoDB Atlas website and create an account for easy installation.
+Establish the connection in the 'App.js' file in the server directory.  
+5. Start the server:
+   ```
+   npm start
+   ```
+6. Browse to [http://localhost:3000](http://localhost:3000)
 
-- WIP - Homepage.
+* The website is designed for ipad / laptop viewing due to expected use.
 
-![](./images/Work-in-progress-220526-Home.png)
-
-- WIP - Log in & Sign up
-
-![](./images/Work-in-progress-220526-signup.png)
-![](./images/Work-in-progress-220526-login.png)
-![](./images/Work-in-progress-220526-history.png)
-
-- WIP - Add a book suggestion, book added to list.
-
-![](./images/Work-in-progress-220526-addbook.png)
-![](./images/Work-in-progress-220526-bookadded.png)
+<br>
 
 ### Tech Stack
 
 - [Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/) JavaScript runtime environment.
 - [Express](https://expressjs.com/) web framework for Node.js.
 - [Nodemon](https://nodemon.io/) to reload the server automatically.
-- [Handlebars](https://handlebarsjs.com/) for serverside rendering to generate the HTML. [Reference](https://stackabuse.com/guide-to-handlebars-templating-engine-for-node/) tutorial.
+- [Handlebars](https://handlebarsjs.com/) for serverside rendering to generate the HTML.
 - [Bulma](https://bulma.io/documentation) for CSS styling the HTML.
 - [Mongoose](https://mongoosejs.com) to model objects in MongoDB.
 - [Jest](https://jestjs.io/) to write and run unit tests.
@@ -36,7 +37,9 @@ Current status, MVP achieved. Sign-in and log-in functions added. Working from l
 
 ![](./images/Diagram_01.png)
 
-Adding Handlebars template engine to the tech stack with Node.js and Express, allows me to create a Server Side Rendered (SSR) web application. The template for the webpage is defined and then, based on the current requirement and the query to the database(hardcoded to start with), the template is populated with received content. The template engine generates the HTML on the server side and then this static rendered webpage is displayed in the browser.
+Adding Handlebars template engine to the tech stack with Node.js and Express, allows me to create a Server Side Rendered (SSR) web application. The template for the webpage is defined and then, based on the current requirement and the query to the database, the template is populated with received content. The template engine generates the HTML on the server side and then this static rendered webpage is displayed in the browser.
+
+<br>
 
 ### Functionality
 
@@ -103,3 +106,21 @@ I would like to recieve an email reminder the morning of a book discussion with 
 ```
 
 ![](./images/wireframeAdditional.png)
+
+<br>
+
+## Work in progress screenshots
+
+MVP achieved. Sign-in and log-in functions working. Using local MongoDB database currently. Can add book suggestion through form and select them as the next months book.
+
+### Homepage
+
+![](./images/screenshots/2022-06-14-Homepage.png)
+
+### Suggested books
+
+![](./images/screenshots/2022-06-14-Suggested.png)
+
+### Add a book to suggestion list
+
+![](./images/screenshots/2022-06-14-Suggested-addbook.png)
