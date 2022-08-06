@@ -5,33 +5,25 @@ const NUMBER_OF_BOOKS_TO_SHOW = 6;
 const BooksController = {
   Index: (req, res) => {
     const { query } = req;
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
 
     Book.find((err, books) => {
       if (err) {
         throw err;
       }
-      const filteredBooks = books
-        .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
-        .sort((a, b) => {
-            let dateA = new Date(a.discussionDate);
-            let dateB = new Date(b.discussionDate);
-          return dateB - dateA;
-        });
 
+      const getFilteredBooks = ({ unfilteredBooks, startIndex, pageSize }) =>
+        unfilteredBooks
+          .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
+          .sort((a, b) => {
+            return b.discussionDate - a.disscussionDate;
+          })
+          .slice(startIndex, startIndex + pageSize);
+
+      const filteredBooks = getFilteredBooks({
+        unfilteredBooks: books,
+        startIndex: 0,
+        pageSize: NUMBER_OF_BOOKS_TO_SHOW,
+      });
 
       const nextButton = filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW;
 
@@ -47,7 +39,6 @@ const BooksController = {
     });
   },
 
-  // This "more"books page is almost a repetition of the page above but not sure how else to do it with 6 results per page.
   More: (req, res) => {
     const { query } = req;
 
@@ -55,18 +46,22 @@ const BooksController = {
       if (err) {
         throw err;
       }
-      const filteredBooks = books
-        .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
-        .sort((a, b) => {
-            let dateA = new Date(a.discussionDate);
-            let dateB = new Date(b.discussionDate);
-          return dateB - dateA;
-        })
-        .slice(6, 12);
+      const getFilteredBooks = ({ unfilteredBooks, startIndex, pageSize }) =>
+        unfilteredBooks
+          .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
+          .sort((a, b) => {
+            return b.discussionDate - a.disscussionDate;
+          })
+          .slice(startIndex, startIndex + pageSize);
+
+      const filteredBooks = getFilteredBooks({
+        unfilteredBooks: books,
+        startIndex: NUMBER_OF_BOOKS_TO_SHOW,
+        pageSize: NUMBER_OF_BOOKS_TO_SHOW,
+      });
 
       res.render("books/more", {
         books: filteredBooks,
-        // These booleans control what is shown in the page header
         previousButton: true,
         suggestionsButton: true,
         nextButton: false,
@@ -143,7 +138,6 @@ const BooksController = {
     });
   },
 
-  // Update a book from suggestion to selected
   AddBookSelectionDate: (req, res) => {
     const {
       body: { month },
