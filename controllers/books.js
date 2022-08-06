@@ -25,11 +25,11 @@ const BooksController = {
         pageSize: NUMBER_OF_BOOKS_TO_SHOW,
       });
 
-      const nextButton = filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW;
+      const showNextButton = filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW;
 
       res.render("books/index", {
         books: filteredBooks.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
-        nextButton: nextButton,
+        nextButton: showNextButton,
         suggestionsButton: true,
         bookContent:
           books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
