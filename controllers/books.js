@@ -11,33 +11,24 @@ const BooksController = {
         throw err;
       }
 
-      const getFilteredBooks = ({ unfilteredBooks, startIndex, pageSize }) =>
-        unfilteredBooks
-          .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
-          .sort((a, b) => {
-            return b.discussionDate - a.disscussionDate;
-          })
-          .slice(startIndex, startIndex + pageSize);
+      const booksOrderedByDate = books
+        .filter((ordereredByDate) => ordereredByDate.discussionDate != "TBC")
+        .sort((a, b) => {
+          let dateA = new Date(a.discussionDate);
+          let dateB = new Date(b.discussionDate);
+          return dateB - dateA;
+        });
 
-      const filteredBooks = getFilteredBooks({
-        unfilteredBooks: books,
-        startIndex: 0,
-        pageSize: NUMBER_OF_BOOKS_TO_SHOW,
-      });
-
-      let showNextButton = false;
-      if (filteredBooks.lenght > NUMBER_OF_BOOKS_TO_SHOW) {
-        showNextButton = true;
-      }
-      // const showNextButton = filteredBooks.length > NUMBER_OF_BOOKS_TO_SHOW;
+      const showNextButton =
+        booksOrderedByDate.length > NUMBER_OF_BOOKS_TO_SHOW;
 
       res.render("books/index", {
-        books: filteredBooks.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
+        books: booksOrderedByDate.slice(0, NUMBER_OF_BOOKS_TO_SHOW),
         nextButton: showNextButton,
         suggestionsButton: true,
         bookContent:
           books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
-          books[0] ||
+          booksOrderedByDate[0] ||
           {},
       });
     });
@@ -50,29 +41,38 @@ const BooksController = {
       if (err) {
         throw err;
       }
-      const getFilteredBooks = ({ unfilteredBooks, startIndex, pageSize }) =>
-        unfilteredBooks
-          .filter((filteredByDate) => filteredByDate.discussionDate != "TBC")
+
+      const getBooksOrderedByDate = ({
+        unOrderedBooks,
+        startIndex,
+        pageSize,
+      }) =>
+        unOrderedBooks
+          .filter((ordereredByDate) => ordereredByDate.discussionDate != "TBC")
           .sort((a, b) => {
-            return b.discussionDate - a.disscussionDate;
+            let dateA = new Date(a.discussionDate);
+            let dateB = new Date(b.discussionDate);
+            return dateB - dateA;
           })
           .slice(startIndex, startIndex + pageSize);
 
-      const filteredBooks = getFilteredBooks({
-        unfilteredBooks: books,
+      const booksOrderedByDate = getBooksOrderedByDate({
+        unOrderedBooks: books,
         startIndex: NUMBER_OF_BOOKS_TO_SHOW,
         pageSize: NUMBER_OF_BOOKS_TO_SHOW,
       });
 
       res.render("books/more", {
-        books: filteredBooks,
+        books: booksOrderedByDate,
         previousButton: true,
         suggestionsButton: true,
         nextButton: false,
         moreBooks: true,
         bookContent:
-          filteredBooks.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
-          filteredBooks[0] ||
+          booksOrderedByDate.filter(
+            ({ _id }) => _id == query?.selectedBook
+          )?.[0] ||
+          booksOrderedByDate[0] ||
           {},
       });
     });
