@@ -70,7 +70,7 @@ const sessionChecker = (req, res, next) => {
 };
 
 // route setup
-app.use("/books", booksRouter);
+app.use("/", booksRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/users", usersRouter);
 

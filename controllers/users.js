@@ -29,7 +29,7 @@ const UsersController = {
             throw err;
           }
           req.session.user = user;
-          res.status(201).redirect("/books");
+          res.status(201).redirect("/");
         });
       }
     });

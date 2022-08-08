@@ -15,7 +15,7 @@ const SessionsController = {
         res.redirect("/sessions/new");
       } else {
         req.session.user = user;
-        res.redirect("/books/suggestions");
+        res.redirect("/suggestions");
       }
     });
   },

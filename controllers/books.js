@@ -106,7 +106,7 @@ const BooksController = {
       if (existingBook) {
         const message =
           "This title is already in use, please enter a new title";
-        return res.redirect(`/books/new?message=${message}`);
+        return res.redirect(`/new?message=${message}`);
       } else {
         book.save((err) => {
           if (err) {
@@ -114,7 +114,7 @@ const BooksController = {
           }
           req.session.user = book;
           console.log("saving...");
-          res.status(201).redirect("/books/suggestions");
+          res.status(201).redirect("/suggestions");
         });
       }
     });
@@ -160,7 +160,7 @@ const BooksController = {
       })
       .then(() => {
         console.log("saving...");
-        res.status(201).redirect("/books/suggestions");
+        res.status(201).redirect("/suggestions");
       });
   },
 
@@ -175,7 +175,7 @@ const BooksController = {
       })
       .then(() => {
         console.log("saving...");
-        res.status(201).redirect("/books/suggestions");
+        res.status(201).redirect("/suggestions");
       });
   },
 };
