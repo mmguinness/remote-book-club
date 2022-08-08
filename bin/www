@@ -20,8 +20,8 @@ app.set("port", port);
  * Connect to MongoDB
  **/
 
-const mongoDbUrl =
-  "mongodb+srv://BookClubAdmin:dh4gRvHUUvVOw3ei@book-club.6xf6g.mongodb.net/?retryWrites=true&w=majority";
+const mongoDbUrl = process.env.MONGODB_URI;
+  
 mongoose.connect(mongoDbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
