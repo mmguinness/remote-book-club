@@ -31,43 +31,43 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 app.use(express.json());
 
-app.use(
-  session({
-    key: "user_sid",
-    secret: "super_secret",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      expires: 600000,
-    },
-  })
-);
+// app.use(
+//   session({
+//     key: "user_sid",
+//     secret: "super_secret",
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       expires: 600000,
+//     },
+//   })
+// );
 
-app.use(async function (req, res, next) {
-  if (req.session.user) {
-    const globalUser = await User.findById(req.session.user._id).exec();
-    res.locals.globalUser = globalUser;
-  }
-  res.locals.session = req.session;
-  next();
-});
+// app.use(async function (req, res, next) {
+//   if (req.session.user) {
+//     const globalUser = await User.findById(req.session.user._id).exec();
+//     res.locals.globalUser = globalUser;
+//   }
+//   res.locals.session = req.session;
+//   next();
+// });
 
-// clear the cookies after user logs out
-app.use((req, res, next) => {
-  if (req.cookies.user_sid && !req.session.user) {
-    res.clearCookie("user_sid");
-  }
-  next();
-});
+// // clear the cookies after user logs out
+// app.use((req, res, next) => {
+//   if (req.cookies.user_sid && !req.session.user) {
+//     res.clearCookie("user_sid");
+//   }
+//   next();
+// });
 
-// middleware function to check for logged-in users
-const sessionChecker = (req, res, next) => {
-  if (!req.session.user && !req.cookies.user_sid) {
-    res.redirect("/sessions/new");
-  } else {
-    next();
-  }
-};
+// // middleware function to check for logged-in users
+// const sessionChecker = (req, res, next) => {
+//   if (!req.session.user && !req.cookies.user_sid) {
+//     res.redirect("/sessions/new");
+//   } else {
+//     next();
+//   }
+// };
 
 // route setup
 app.use("/", booksRouter);
