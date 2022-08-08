@@ -1,5 +1,4 @@
 require("dotenv").config();
-const source = process.env.MONGODB_URI;
 const path = require("path");
 const express = require("express");
 const createError = require("http-errors");
@@ -137,7 +136,5 @@ hbs.registerHelper("getSelectedMonth", function (month) {
 
   return months[month.getMonth()];
 });
-console.log("before V");
-console.log(source);
-console.log("after^");
+
 module.exports = app;
