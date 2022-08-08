@@ -20,7 +20,7 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
 // hbs register helpers and partials
-hbs.registerPartials(__dirname + '/views/partials')
+hbs.registerPartials(__dirname + "/views/partials");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -89,9 +89,9 @@ app.use((err, req, res) => {
 });
 
 // hbs helpers and partials
-hbs.registerHelper('getCurrentYear', () => {
-  return new Date().getFullYear()
-})
+hbs.registerHelper("getCurrentYear", () => {
+  return new Date().getFullYear();
+});
 
 hbs.registerHelper("getCurrentMonth", () => {
   const months = [
@@ -108,12 +108,12 @@ hbs.registerHelper("getCurrentMonth", () => {
     "November",
     "December",
   ];
-  const d = new Date(); 
+  const d = new Date();
   return months[d.getMonth()];
 });
 
 // An arrow function does not create its own this context, which is required here.
-hbs.registerHelper("getSelectedMonth", function(month) {
+hbs.registerHelper("getSelectedMonth", function (month) {
   const months = [
     "January",
     "February",
@@ -128,9 +128,8 @@ hbs.registerHelper("getSelectedMonth", function(month) {
     "November",
     "December",
   ];
- 
+
   return months[month.getMonth()];
 });
-
 
 module.exports = app;

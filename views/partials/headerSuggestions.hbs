@@ -1,50 +1,52 @@
 <header>
   <section class="section has-background-success-light">
-    <div id="top-panel" class="columns">
-      <div class="column is-one-quarter has-text-link">
-        <a href="/books">
-          <h1 class="title is-size-1">
-            Book Club
+    <div class="container">
+      <div id="top-panel" class="columns">
+        <div class="column is-one-quarter has-text-link">
+          <a href="/books">
+            <h1 class="title is-size-1">
+              Book Club
+            </h1>
+          </a>
+          {{#if addBookButton}}
+          <h1 class="subtitle is-size-3">
+            Next read...
           </h1>
-        </a>
-        {{#if addBookButton}}
-        <h1 class="subtitle is-size-3">
-          Next read...
-        </h1>
-        <div class="field is-grouped">
-          <div class="field control">
-            <a href="/books/new">
-              <button class="button is-medium is-success">
-                <p>
-                  + Book
-                </p>
-              </button>
-            </a>
+          <div class="field is-grouped">
+            <div class="field control">
+              <a href="/books/new">
+                <button class="button is-medium is-success">
+                  <p>
+                    + Book
+                  </p>
+                </button>
+              </a>
+            </div>
+            <div class="field control">
+              <a href="">
+                <button class="button is-medium is-danger">
+                  <p>
+                    Reading List
+                  </p>
+                </button>
+              </a>
+            </div>
           </div>
-          <div class="field control">
-            <a href="">
-              <button class="button is-medium is-danger">
-                <p>
-                  Reading List
-                </p>
-              </button>
-            </a>
-          </div>
-        </div>
-        {{else}}
-        <h1 class="subtitle is-size-3">
-          Suggest a book
-        </h1>
-        {{/if}}
-    </div>
-    <div id="main-container" class="column is-three-quarters tile is-ancestor">
-    {{#each books}}
-      <div class="books column is-2">
-        <a href="/books/suggestions?selectedBook={{this._id}}">
-          <img class="card" src="/{{this.bookCover}}" width="100px" />
-        </a>
+          {{else}}
+          <h1 class="subtitle is-size-3">
+            Suggest a book
+          </h1>
+          {{/if}}
       </div>
-    {{/each}}
+      <div id="main-container" class="column is-three-quarters tile is-ancestor">
+      {{#each books}}
+        <div class="books column is-2">
+          <a href="/books/suggestions?selectedBook={{this._id}}">
+            <img class="card" src="https://drive.google.com/uc?id={{this.bookCover}}" width="100" alt="Google Drive Image" />
+          </a>
+        </div>
+      {{/each}}
+      </div>
     </div>
   </section>
 </header>
