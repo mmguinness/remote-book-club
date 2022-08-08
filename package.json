@@ -6,7 +6,6 @@
   "scripts": {
     "start:test": "PORT=3000 MONGODB_URL='mongodb://127.0.0.1/book-club_test' npm start",
     "lint": "eslint .",
-    // "start": "nodemon ./bin/www",
     "build": "esbuild ./app.js --bundle  --outfile=bundle.js --watch",
     "web": "node index.js",
     "start": "node index.js"
