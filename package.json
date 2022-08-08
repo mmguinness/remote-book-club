@@ -9,7 +9,7 @@
     "build": "esbuild ./app.js --bundle  --outfile=bundle.js --watch",
     "web": "node index.js",
     "start": "node index.js",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -49,7 +49,8 @@
     "nodemon": "^2.0.16"
   },
   "engines": {
-    "node": "18.0.0"
+    "node": "18.0.0",
+    "npm": "8.6.0"
   },
   "nodemonConfig": {
     "ext": "js,hbs"
