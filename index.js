@@ -1,7 +1,5 @@
 require("dotenv").config();
 const path = require("path");
-const MongoStore = require("connect-mongo");
-const mongoose = require("mongoose");
 const express = require("express");
 const createError = require("http-errors");
 const app = express();
@@ -33,26 +31,15 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 app.use(express.json());
 
-// app.use(
-//   session({
-//     key: "user_sid",
-//     secret: "super_secret",
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: {
-//       expires: 600000,
-//     },
-//   })
-// );
 app.use(
   session({
-    secret: "user_sid",
-    resave: true,
-    saveUninitialized: true,
-    cookie: { maxAge: 19 * 60000 }, // store for 19 minutes
-    store: MongoStore.create({
-      client: mongoose.connection.getClient(),
-    }),
+    key: "user_sid",
+    secret: "super_secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expires: 600000,
+    },
   })
 );
 
