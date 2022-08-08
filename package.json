@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "build": "esbuild ./app.js --bundle  --outfile=bundle.js --watch",
     "web": "node index.js",
-    "start": "node index.js",
+    "start": "nodemon ./bin/www",
     "heroku-postbuild": "npm install && npm run build"
   },
   "repository": {
