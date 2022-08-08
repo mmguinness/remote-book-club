@@ -1,6 +1,8 @@
+require("dotenv").config();
+const source = process.env.MONGODB_URI;
+const path = require("path");
 const express = require("express");
 const createError = require("http-errors");
-const path = require("path");
 const app = express();
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
@@ -28,8 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
-
 app.use(express.json());
+
 app.use(
   session({
     key: "user_sid",
@@ -42,7 +44,11 @@ app.use(
   })
 );
 
-app.use(function (req, res, next) {
+app.use(async function (req, res, next) {
+  if (req.session.user) {
+    const globalUser = await User.findById(req.session.user._id).exec();
+    res.locals.globalUser = globalUser;
+  }
   res.locals.session = req.session;
   next();
 });
@@ -131,5 +137,7 @@ hbs.registerHelper("getSelectedMonth", function (month) {
 
   return months[month.getMonth()];
 });
-
+console.log("before V");
+console.log(source);
+console.log("after^");
 module.exports = app;
