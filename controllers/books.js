@@ -105,7 +105,7 @@ const BooksController = {
     } = req;
 
     const book = new Book({
-      user: req.session.user._id,
+      user: req.session.user.userName,
       author,
       bookTitle,
       description,

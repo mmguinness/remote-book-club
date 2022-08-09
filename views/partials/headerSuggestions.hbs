@@ -2,7 +2,7 @@
   <section class="section has-background-success-light">
     <div class="container">
       <div id="top-panel" class="columns">
-        <div class="column is-one-quarter has-text-link">
+        <div class="column is-one-quarter">
           <a href="/books">
             <h1 class="title is-size-1">
               Book Club
@@ -15,7 +15,7 @@
           <div class="field is-grouped">
             <div class="field control">
               <a href="/books/new">
-                <button class="button is-medium is-success">
+                <button class="button is-success">
                   <p>
                     + Book
                   </p>
@@ -23,19 +23,20 @@
               </a>
             </div>
             <div class="field control">
-              <a href="">
-                <button class="button is-medium is-danger">
-                  <p>
-                    Reading List
-                  </p>
-                </button>
-              </a>
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="button is-success" type="submit" value="Log Out" />
+              </form>
             </div>
           </div>
           {{else}}
           <h1 class="subtitle is-size-3">
             Suggest a book
           </h1>
+          {{/if}}
+          {{#if session.user}}
+          <p>Currently logged in as {{session.user.userName}}.</p>
+          {{else}}
+          <p>Not logged in.</p>
           {{/if}}
       </div>
       <div id="main-container" class="column is-three-quarters tile is-ancestor">

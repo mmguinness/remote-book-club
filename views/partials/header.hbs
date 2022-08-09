@@ -2,7 +2,7 @@
   <section class="section has-background-link-light">
     <div class="container">
       <div id="top-panel" class="columns">
-        <div class="column is-one-quarter has-text-link">
+        <div class="column is-one-quarter">
           <a href="/books">
             <h1 class="title is-size-1">
               Book Club
@@ -10,21 +10,40 @@
           </a>
           {{#if suggestionsButton}}
           <h1 class="subtitle is-size-3">
-            {{getCurrentMonth}} {{getCurrentYear}}
+            <a href="">
+              <p>{{getCurrentYear}} Reading List</p>
+            </a>
           </h1>
-          <a href="/books/suggestions">
-            <button class="button is-medium is-link">
-              <p>
-                Suggested Books
-              </p>
-            </button>
-          </a>
+          <div class="field is-grouped">
+            <div class="field control">
+              <a href="/books/suggestions">
+                <button class="button is-link">
+                  <p>
+                    Next read
+                  </p>
+                </button>
+              </a>
+            </div>
+            <div class="field control">
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="button is-link" type="submit" value="Log Out" />
+              </form>
+            </div>
+          </div>
           {{else}}
-        <h1 class="subtitle is-size-3">
-          <p><a href="/sessions/new">Log in / </a><a href="/users/new">Sign up</a></p>
-        </h1>
+          <div>
+            <h1 class="subtitle is-size-3">
+              <p><a href="/sessions/new">Log in / </a><a href="/users/new">Sign up</a></p>
+            </h1>
+          </div>
           {{/if}}
-      </div>
+          {{#if session.user}}
+          <p>Currently logged in as {{session.user.userName}}.</p>
+          {{else}}
+          <br>
+          <p>Not logged in.</p>
+          {{/if}}
+    </div>  
       <div id="main-container" class="column is-three-quarters tile is-ancestor">
         {{#previousButton}}
           <form id="books-form" method="get" action="/books">
