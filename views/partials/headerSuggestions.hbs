@@ -2,8 +2,8 @@
   <section class="section has-background-success-light">
     <div class="container">
       <div id="top-panel" class="columns">
-        <div class="column is-one-quarter has-text-link">
-          <a href="/">
+        <div class="column is-one-quarter">
+          <a href="/books">
             <h1 class="title is-size-1">
               Book Club
             </h1>
@@ -14,8 +14,8 @@
           </h1>
           <div class="field is-grouped">
             <div class="field control">
-              <a href="/new">
-                <button class="button is-medium is-success">
+              <a href="/books/new">
+                <button class="button is-success">
                   <p>
                     + Book
                   </p>
@@ -23,13 +23,9 @@
               </a>
             </div>
             <div class="field control">
-              <a href="">
-                <button class="button is-medium is-danger">
-                  <p>
-                    Reading List
-                  </p>
-                </button>
-              </a>
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="button is-success" type="submit" value="Log Out" />
+              </form>
             </div>
           </div>
           {{else}}
@@ -37,11 +33,16 @@
             Suggest a book
           </h1>
           {{/if}}
+          {{#if session.user}}
+          <p>Currently logged in as {{session.user.userName}}.</p>
+          {{else}}
+          <p>Not logged in.</p>
+          {{/if}}
       </div>
       <div id="main-container" class="column is-three-quarters tile is-ancestor">
       {{#each books}}
         <div class="books column is-2">
-          <a href="/suggestions?selectedBook={{this._id}}">
+          <a href="/books/suggestions?selectedBook={{this._id}}">
             <img class="card" src="https://drive.google.com/uc?id={{this.bookCover}}" width="100" alt="Google Drive Image" />
           </a>
         </div>

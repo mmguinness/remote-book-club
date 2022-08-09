@@ -36,7 +36,7 @@
         <br />
         <div class="field is-grouped">
           <div class="control">
-          <form id="select-form" method="post" action="/suggestions?selectedBook={{bookContent._id}}">
+          <form id="select-form" method="post" action="/books/suggestions?selectedBook={{bookContent._id}}">
             <div class="field has-addons">
               <div class="control">
                 <div class="select">
@@ -64,7 +64,7 @@
           </form>
           </div>
           <div class="control">
-          <form id="delete-form" method="post" action="/delete?selectedBook={{bookContent._id}}">
+          <form id="delete-form" method="post" action="/books/delete?selectedBook={{bookContent._id}}">
             <div class="control">
               <button type="submit" class="button is-success">Remove</button>
             </div>
