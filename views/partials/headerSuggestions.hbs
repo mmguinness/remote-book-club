@@ -4,12 +4,12 @@
       <div id="top-panel" class="columns">
         <div class="column is-one-quarter">
           <a href="/books">
-            <h1 class="title is-size-1">
+            <h1 class="title is-size-1 has-text-weight-light">
               Book Club
             </h1>
           </a>
           {{#if addBookButton}}
-          <h1 class="subtitle is-size-3">
+          <h1 class="subtitle is-size-4">
             Next read...
           </h1>
           <div class="field is-grouped">
@@ -34,7 +34,7 @@
           </h1>
           {{/if}}
           {{#if session.user}}
-          <p>Currently logged in as {{session.user.userName}}.</p>
+          <p>Logged in as {{session.user.userName}}.</p>
           {{else}}
           <p>Not logged in.</p>
           {{/if}}

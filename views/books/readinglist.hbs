@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="./../style.css" />
+{{> headerReadingList}}
+  <section class="readinglistframe section">
+    <div class="container">
+      <div class="has-text-centered">
+        <h1 class="title is-1 has-text-weight-light">What I read in 2022</h1>
+      </div>
+      <br>
+      <br>
+      <div class="columns is-multiline">
+      {{#each books}}
+      <div class="books column is-2 has-text-centered">
+        <a href="/books/?selectedBook={{this._id}}">
+          <img
+            src="https://drive.google.com/uc?id={{this.bookCover}}"
+            width="150"
+            alt="Google Drive Image"
+          />
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+
