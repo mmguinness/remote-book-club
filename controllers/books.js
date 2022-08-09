@@ -5,6 +5,20 @@ const NUMBER_OF_BOOKS_TO_SHOW = 6;
 const BooksController = {
   Index: (req, res) => {
     const { query } = req;
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
 
     Book.find((err, books) => {
       if (err) {
@@ -106,7 +120,7 @@ const BooksController = {
       if (existingBook) {
         const message =
           "This title is already in use, please enter a new title";
-        return res.redirect(`/new?message=${message}`);
+        return res.redirect(`/books/new?message=${message}`);
       } else {
         book.save((err) => {
           if (err) {
@@ -114,7 +128,7 @@ const BooksController = {
           }
           req.session.user = book;
           console.log("saving...");
-          res.status(201).redirect("/suggestions");
+          res.status(201).redirect("/books/suggestions");
         });
       }
     });
@@ -160,7 +174,7 @@ const BooksController = {
       })
       .then(() => {
         console.log("saving...");
-        res.status(201).redirect("/suggestions");
+        res.status(201).redirect("/books/suggestions");
       });
   },
 
@@ -175,7 +189,7 @@ const BooksController = {
       })
       .then(() => {
         console.log("saving...");
-        res.status(201).redirect("/suggestions");
+        res.status(201).redirect("/books/suggestions");
       });
   },
 };
