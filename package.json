@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "build": "esbuild ./app.js --bundle  --outfile=bundle.js --watch",
     "web": "node index.js",
-    "start": "node index.js"
+    "start": "nodemon ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -48,7 +48,7 @@
     "nodemon": "^2.0.16"
   },
   "engines": {
-    "node": "18.x",
+    "node": ">=16.14.0",
     "npm": "8.6.0"
   },
   "nodemonConfig": {
