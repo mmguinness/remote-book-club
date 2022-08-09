@@ -2,32 +2,51 @@
   <section class="section has-background-link-light">
     <div class="container">
       <div id="top-panel" class="columns">
-        <div class="column is-one-quarter has-text-link">
-          <a href="/">
+        <div class="column is-one-quarter">
+          <a href="/books">
             <h1 class="title is-size-1">
               Book Club
             </h1>
           </a>
           {{#if suggestionsButton}}
           <h1 class="subtitle is-size-3">
-            {{getCurrentMonth}} {{getCurrentYear}}
+            <a href="">
+              <p>{{getCurrentYear}} Reading List</p>
+            </a>
           </h1>
-          <a href="/sessions/new">
-            <button class="button is-medium is-link">
-              <p>
-                Suggested Books
-              </p>
-            </button>
-          </a>
+          <div class="field is-grouped">
+            <div class="field control">
+              <a href="/books/suggestions">
+                <button class="button is-link">
+                  <p>
+                    Next read
+                  </p>
+                </button>
+              </a>
+            </div>
+            <div class="field control">
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="button is-link" type="submit" value="Log Out" />
+              </form>
+            </div>
+          </div>
           {{else}}
-        <h1 class="subtitle is-size-3">
-          <p><a href="/sessions/new">Log in / </a><a href="/users/new">Sign up</a></p>
-        </h1>
+          <div>
+            <h1 class="subtitle is-size-3">
+              <p><a href="/sessions/new">Log in / </a><a href="/users/new">Sign up</a></p>
+            </h1>
+          </div>
           {{/if}}
-      </div>
+          {{#if session.user}}
+          <p>Currently logged in as {{session.user.userName}}.</p>
+          {{else}}
+          <br>
+          <p>Not logged in.</p>
+          {{/if}}
+    </div>  
       <div id="main-container" class="column is-three-quarters tile is-ancestor">
         {{#previousButton}}
-          <form id="books-form" method="get" action="/">
+          <form id="books-form" method="get" action="/books">
             <button class="arrowbutton button is-link">
               <
             </button>
@@ -36,7 +55,7 @@
         {{#if moreBooks}}
           {{#each books}}
           <div class="books column is-2">
-            <a href="/more?selectedBook={{this._id}}">
+            <a href="/books/more?selectedBook={{this._id}}">
               <img class="card" src="https://drive.google.com/uc?id={{this.bookCover}}" width="100" alt="Google Drive Image" />
             </a>
           </div>
@@ -44,14 +63,14 @@
         {{else}}
         {{#each books}}
           <div class="books column is-2">
-            <a href="/?selectedBook={{this._id}}">
+            <a href="/books/?selectedBook={{this._id}}">
               <img class="card" src="https://drive.google.com/uc?id={{this.bookCover}}" width="100" alt="Google Drive Image" />
             </a>
           </div>
         {{/each}}
         {{/if}}
         {{#nextButton}}
-          <form id="moreBooks-form" method="get" action="/more">
+          <form id="moreBooks-form" method="get" action="/books/more">
             <button class="button arrowbutton is-link">
               >
             </button>

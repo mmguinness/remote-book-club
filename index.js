@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const methodOverride = require("method-override");
+const homeRouter = require("./routes/home");
 const booksRouter = require("./routes/books");
 const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
@@ -43,11 +44,7 @@ app.use(
   })
 );
 
-app.use(async function (req, res, next) {
-  if (req.session.user) {
-    const globalUser = await User.findById(req.session.user._id).exec();
-    res.locals.globalUser = globalUser;
-  }
+app.use(function (req, res, next) {
   res.locals.session = req.session;
   next();
 });
@@ -70,9 +67,12 @@ const sessionChecker = (req, res, next) => {
 };
 
 // route setup
-app.use("/", booksRouter);
+app.use("/", homeRouter);
+app.use("/books", sessionChecker, booksRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/users", usersRouter);
+
+app.use("/books/suggestions", sessionChecker, booksRouter);
 
 app.use(express.static(__dirname + "/images"));
 app.use("/bulma", express.static(__dirname + "/node_modules/bulma/css/"));
