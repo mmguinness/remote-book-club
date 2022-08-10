@@ -1,13 +1,11 @@
 # Remote Book Club (RBC)
 
 <p style="text-align: center;">
-  <img alt="Homepage" src="./images/screenshots/2022-08-10-Homepage.png" width="20%">
-&nbsp; &nbsp; 
-  <img alt="Suggested" src="./images/screenshots/2022-08-10-Suggested.png" width="20%">
-&nbsp; &nbsp; 
-  <img alt="Addbook" src="./images/screenshots/2022-08-10-Addbook.png" width="20%">
+  <img alt="Homepage" src="./images/screenshots/2022-08-10-Homepage.png" width="30%">
+   &nbsp; &nbsp; 
+  <img alt="Suggested" src="./images/screenshots/2022-08-10-Suggested.png" width="30%">   
   &nbsp; &nbsp; 
-  <img alt="ReadingList" src="./images/screenshots/2022-08-10-ReadingList.png" width="20%">
+  <img alt="ReadingList" src="./images/screenshots/2022-08-10-ReadingList.png" width="30%">
 </p>
 
 
@@ -136,7 +134,7 @@ MVP achieved. Sign-in and log-in functions working. Using local MongoDB database
 
 ### Add a book to suggestion list
 
-![](./images/screenshots/2022-08-10-Addbook.png)
+![](./images/screenshots/2022-08-10-AddBook.png)
 
 ### Reading List
 
