@@ -1,5 +1,16 @@
 # Remote Book Club (RBC)
 
+<p style="text-align: center;">
+  <img alt="Homepage" src="./images/screenshots/2022-08-10-Homepage.png" width="20%">
+&nbsp; &nbsp; 
+  <img alt="Suggested" src="./images/screenshots/2022-08-10-Suggested.png" width="20%">
+&nbsp; &nbsp; 
+  <img alt="Addbook" src="./images/screenshots/2022-08-10-Addbook.png" width="20%">
+  &nbsp; &nbsp; 
+  <img alt="ReadingList" src="./images/screenshots/2022-08-10-ReadingList.png" width="20%">
+</p>
+
+
 ## About
 
 A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. 
@@ -18,9 +29,9 @@ Establish the connection in the 'App.js' file in the server directory.
    ```
    npm start
    ```
-6. Browse to [http://localhost:3000](http://localhost:3000)
+6. Browse to [http://localhost:5000](http://localhost:5000)
 
-* The website is designed for ipad / laptop viewing due to expected use.
+* The website is designed for ipad / laptop viewing.
 
 <br>
 
@@ -30,8 +41,9 @@ Establish the connection in the 'App.js' file in the server directory.
 - [Express](https://expressjs.com/) web framework for Node.js.
 - [Nodemon](https://nodemon.io/) to reload the server automatically.
 - [Handlebars](https://handlebarsjs.com/) for serverside rendering to generate the HTML.
-- [Bulma](https://bulma.io/documentation) for CSS styling the HTML.
+- [MongoDB Atlas](https://mongoosejs.com) to store information in Cloud database.
 - [Mongoose](https://mongoosejs.com) to model objects in MongoDB.
+- [Bulma](https://bulma.io/documentation) for CSS styling the HTML.
 - [Jest](https://jestjs.io/) to write and run unit tests.
 - [ESLint](https://eslint.org) for linting.
 
@@ -43,10 +55,10 @@ Adding Handlebars template engine to the tech stack with Node.js and Express, al
 
 ### Functionality
 
-- You don't have to be logged in to see the reading history.
-- Users can sign up to RBC with email and a username.
+- Users can sign up to the book club with en email address and a username.
 - The username and email are unique.
-- In order to suggest a book, users can log in and add a suggestion.
+- To view books, users can log in and see the reading history.
+- To suggest a book for the group to read, users can log in and add a suggestion.
 
 **MVP**
 
@@ -72,10 +84,11 @@ I would like to be able see all previous remote-book-club selected books
 **Additional**<br>
 
 - User: Sign up
-- User: Sign in
-- User: Sign out
+- User: Log in
+- User: Log out
 - User: Add book suggestion
 - User: Get reminder emails
+- User: View a _Reading List_ layout of all books read.
 
 **Additional user stories & wireframes**
 
@@ -115,12 +128,16 @@ MVP achieved. Sign-in and log-in functions working. Using local MongoDB database
 
 ### Homepage
 
-![](./images/screenshots/2022-06-14-Homepage.png)
+![](./images/screenshots/2022-08-10-Homepage.png)
 
 ### Suggested books
 
-![](./images/screenshots/2022-06-14-Suggested.png)
+![](./images/screenshots/2022-08-10-Suggested.png)
 
 ### Add a book to suggestion list
 
-![](./images/screenshots/2022-06-14-Suggested-addbook.png)
+![](./images/screenshots/2022-08-10-Addbook.png)
+
+### Reading List
+
+![](./images/screenshots/2022-08-10-ReadingList.png)

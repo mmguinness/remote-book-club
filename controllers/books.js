@@ -5,20 +5,6 @@ const NUMBER_OF_BOOKS_TO_SHOW = 6;
 const BooksController = {
   Index: (req, res) => {
     const { query } = req;
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
 
     Book.find((err, books) => {
       if (err) {
@@ -192,6 +178,32 @@ const BooksController = {
         res.status(201).redirect("/books/suggestions");
       });
   },
+
+  ReadingList: (req, res) => {
+    const { query } = req;
+
+    Book.find((err, books) => {
+      if (err) {
+        throw err;
+      }
+
+      const booksOrderedByDate = books
+        .filter((ordereredByDate) => ordereredByDate.discussionDate != "TBC")
+        .sort((a, b) => {
+          let dateA = new Date(a.discussionDate);
+          let dateB = new Date(b.discussionDate);
+          return dateA - dateB;
+        });
+
+      res.render("books/readinglist", {
+        books: booksOrderedByDate,
+        bookContent:
+          books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
+          {},
+      });
+    });
+  },
+  
 };
 
 module.exports = BooksController;

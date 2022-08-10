@@ -10,5 +10,6 @@ router.get("/new", BooksController.New);
 router.get("/suggestions", BooksController.Suggestion);
 router.post("/suggestions", BooksController.AddBookSelectionDate);
 router.post("/delete", BooksController.DeleteBookSuggestion);
+router.get("/readinglist", BooksController.ReadingList);
 
 module.exports = router;
