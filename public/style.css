@@ -2,3 +2,8 @@
   position: relative;
   top: 65px;
 }
+
+.reading-list {
+  padding-left: 150px;
+  padding-right: 150px;
+}

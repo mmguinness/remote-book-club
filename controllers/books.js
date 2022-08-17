@@ -198,12 +198,11 @@ const BooksController = {
       res.render("books/readinglist", {
         books: booksOrderedByDate,
         bookContent:
-          books.filter(({ _id }) => _id == query?.selectedBook)?.[0] ||
-          {},
+          books.filter(({ _id }) => _id == query?.selectedBook)?.[0] || {},
       });
     });
   },
-  
+
 };
 
 module.exports = BooksController;

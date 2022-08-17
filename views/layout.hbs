@@ -10,6 +10,23 @@
     />
   </head>
   <body>
+    <script src="html2canvas.js"></script>
+    <script>
+    function saveCanvas() { 
+      console.log("before button pushed to save canvas!")
+
+      html2canvas(document.querySelector("#capture"))
+        .then(canvas => { 
+          const image = canvas
+          .toDataURL("image/png") 
+          .replace("image/png","image/octet-stream")
+          
+          window.location.href=image; 
+          }); 
+          console.log("after button pushed to savecanvas!"
+          ); 
+    }
+  </script>
     {{{body}}}
     {{> footer}}
   </body>
