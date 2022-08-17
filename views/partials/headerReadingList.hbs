@@ -8,20 +8,22 @@
               Book Club
             </h1>
           </a>
-          <div>
-            <h1 class="subtitle is-size-4">
-              <p><a href="/sessions/new">Download Reading List </a></p>
-            </h1>
+          <h1 class="subtitle is-size-4">
+            
+              <p>{{getCurrentYear}} Reading List</p>
+            
+          </h1>
+          
+          <div class="field is-grouped">
+            <div class="field control">
+                <button onClick="saveCanvas();" class="button is-link" disabled>
+                    Download reading list
+                </button>
+            </div>
+            
           </div>
-          {{#if session.user}}
-          <p>Logged in as {{session.user.userName}}.</p>
-          {{else}}
-          <br>
-          <p>Not logged in.</p>
-          {{/if}}
-    </div>  
+        </div>  
       <div id="main-container" class="column is-three-quarters tile is-ancestor">
-
       </div>
     </div>
   </section>
