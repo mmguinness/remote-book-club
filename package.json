@@ -47,7 +47,7 @@
     "nodemon": "^2.0.16"
   },
   "engines": {
-    "node": ">=16.14.0",
+    "node": "18.0.0",
     "npm": "8.6.0"
   },
   "nodemonConfig": {
