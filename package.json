@@ -4,7 +4,7 @@
   "description": "Book Club Website",
   "main": "index.js",
   "scripts": {
-    "start:test": "PORT=3000 MONGODB_URL='mongodb://127.0.0.1/book-club_test' npm start",
+    "start:test": "PORT=5000 MONGODB_URL='mongodb://127.0.0.1/book-club_test' npm start",
     "lint": "eslint .",
     "build": "esbuild ./app.js --bundle  --outfile=bundle.js --watch",
     "web": "node index.js",

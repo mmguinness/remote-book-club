@@ -13,7 +13,6 @@ const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
 const hbshelpers = require("handlebars-helpers")();
 const hbs = require("hbs");
-const User = require("./models/user");
 
 hbs.registerHelper(hbshelpers);
 
