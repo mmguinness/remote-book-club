@@ -13,6 +13,7 @@ const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
 const hbshelpers = require("handlebars-helpers")();
 const hbs = require("hbs");
+const User = require("./models/user");
 
 hbs.registerHelper(hbshelpers);
 
@@ -44,6 +45,15 @@ app.use(
 );
 
 app.use(function (req, res, next) {
+  res.locals.session = req.session;
+  next();
+});
+
+app.use(async function (req, res, next) {
+  if (req.session.user) {
+    const globalUser = await User.findById(req.session.user._id).exec();
+    res.locals.globalUser = globalUser;
+  }
   res.locals.session = req.session;
   next();
 });

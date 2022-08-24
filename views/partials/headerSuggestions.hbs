@@ -33,8 +33,8 @@
             Suggest a book
           </h1>
           {{/if}}
-          {{#if session.user}}
-          <p>Logged in as {{session.user.userName}}.</p>
+          {{#if globalUser}}
+          <p>Logged in as {{globalUser.userName}}.</p>
           {{else}}
           <p>Not logged in.</p>
           {{/if}}
