@@ -1,8 +1,20 @@
 # Remote Book Club (RBC)
 
+<p style="text-align: center;">
+  <img alt="Homepage" src="./images/screenshots/2022-08-10-Homepage.png" width="40%">
+   &nbsp; &nbsp; 
+  <img alt="Suggested" src="./images/screenshots/2022-08-10-Suggested.png" width="40%">   
+</p>
+
+
 ## About
 
-A simple website to host a remote book club. Users can log in to add suggestions to the reading list, see the current book or review the reading history. 
+Personal project to practice using Node, Express and MongoDb. I have developed a simple website to host a remote book club, to help my friends and I keep track of what we are reading. Users can log in to add suggestions to the reading list, see the book selected each month or review the reading history. Inspired by [Reading Lists](http://www.abouttoday.co.uk/Reading-lists) by Lizzy Stewart, a layout-page has been added which contains a collection of all books read that year. 
+
+Again inspired by Lizzy Stewarts reading lists, when suggesting a book to the group, I have included an option to link a file for the book cover image from google-drive, to allow memebers to contribute their own artwork / book cover images.
+
+<img style="text-align: center;" alt="Suggested" src="./images/screenshots/2022-08-17-ReadingList.png" width="80%">
+
 
 ## Set up your own project locally
 
@@ -18,9 +30,9 @@ Establish the connection in the 'App.js' file in the server directory.
    ```
    npm start
    ```
-6. Browse to [http://localhost:3000](http://localhost:3000)
+6. Browse to [http://localhost:5000](http://localhost:5000)
 
-* The website is designed for ipad / laptop viewing due to expected use.
+* The website is designed for ipad / laptop viewing.
 
 <br>
 
@@ -30,8 +42,9 @@ Establish the connection in the 'App.js' file in the server directory.
 - [Express](https://expressjs.com/) web framework for Node.js.
 - [Nodemon](https://nodemon.io/) to reload the server automatically.
 - [Handlebars](https://handlebarsjs.com/) for serverside rendering to generate the HTML.
-- [Bulma](https://bulma.io/documentation) for CSS styling the HTML.
+- [MongoDB Atlas](https://mongoosejs.com) to store information in Cloud database.
 - [Mongoose](https://mongoosejs.com) to model objects in MongoDB.
+- [Bulma](https://bulma.io/documentation) for CSS styling the HTML.
 - [Jest](https://jestjs.io/) to write and run unit tests.
 - [ESLint](https://eslint.org) for linting.
 
@@ -43,10 +56,10 @@ Adding Handlebars template engine to the tech stack with Node.js and Express, al
 
 ### Functionality
 
-- You don't have to be logged in to see the reading history.
-- Users can sign up to RBC with email and a username.
+- Users can sign up to the book club with en email address and a username.
 - The username and email are unique.
-- In order to suggest a book, users can log in and add a suggestion.
+- To view books, users can log in and see the reading history.
+- To suggest a book for the group to read, users can log in and add a suggestion.
 
 **MVP**
 
@@ -72,10 +85,11 @@ I would like to be able see all previous remote-book-club selected books
 **Additional**<br>
 
 - User: Sign up
-- User: Sign in
-- User: Sign out
+- User: Log in
+- User: Log out
 - User: Add book suggestion
 - User: Get reminder emails
+- User: View a _Reading List_ layout of all books read.
 
 **Additional user stories & wireframes**
 
@@ -115,12 +129,16 @@ MVP achieved. Sign-in and log-in functions working. Using local MongoDB database
 
 ### Homepage
 
-![](./images/screenshots/2022-06-14-Homepage.png)
+![](./images/screenshots/2022-08-10-Homepage.png)
 
 ### Suggested books
 
-![](./images/screenshots/2022-06-14-Suggested.png)
+![](./images/screenshots/2022-08-10-Suggested.png)
 
 ### Add a book to suggestion list
 
-![](./images/screenshots/2022-06-14-Suggested-addbook.png)
+![](./images/screenshots/2022-08-10-AddBook.png)
+
+### Reading List
+
+![](./images/screenshots/2022-08-10-ReadingList.png)

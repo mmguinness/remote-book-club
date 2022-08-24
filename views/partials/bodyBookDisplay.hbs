@@ -8,13 +8,12 @@
 
         <div class="column is-three-quarters">
           {{#if addBookButton}} 
-          
-          <p class="title is-spaced is-4 has-text-success">
+          {{!-- <p class="title is-spaced is-4 has-text-success">
             Suggested by Marie. {{bookContent.reason}}
-          </p>
+          </p> --}}
           {{else}} 
           {{#with bookContent}} 
-          <p class="title is-spaced is-4 has-text-link">
+          <p class="subtitle is-spaced is-4 has-text-link">
             {{formattedDate}} Pick: 
           </p>
           {{/with}}
