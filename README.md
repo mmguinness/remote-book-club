@@ -1,17 +1,17 @@
 # Remote Book Club (RBC)
 
-<p style="text-align: center;">
+<!-- <p style="text-align: center;">
   <img alt="Homepage" src="./images/screenshots/2022-08-10-Homepage.png" width="40%">
    &nbsp; &nbsp; 
   <img alt="Suggested" src="./images/screenshots/2022-08-10-Suggested.png" width="40%">   
-</p>
+</p> -->
 
 
 ## About
 
-Personal project to practice using Node, Express and MongoDb. I have developed a simple website to host a remote book club, to help my friends and I keep track of what we are reading. Users can log in to add suggestions to the reading list, see the book selected each month or review the reading history. Inspired by [Reading Lists](http://www.abouttoday.co.uk/Reading-lists) by Lizzy Stewart, a layout-page has been added which contains a collection of all books read that year. 
+Personal project to practice using Node, Express and MongoDb. I have developed a simple website to host a remote book club, to help my friends and I keep track of what we are reading while living in different countries. Members can log in to see the book selected each month add suggestions to the reading list, or review the reading history. Inspired by [Reading Lists](http://www.abouttoday.co.uk/Reading-lists) by Lizzy Stewart, a layout-page has been added which contains a visual collection of all books read that year. 
 
-Again inspired by Lizzy Stewarts reading lists, when suggesting a book to the group, I have included an option to link a file for the book cover image from google-drive, to allow memebers to contribute their own artwork / book cover images.
+Again inspired by Lizzy Stewarts book-cover drawings, when suggesting a book to the group, I have included an option to link a file for the book cover image from google-drive, to allow members to contribute their own artwork / book cover images.
 
 <img style="text-align: center;" alt="Suggested" src="./images/screenshots/2022-08-17-ReadingList.png" width="80%">
 
@@ -24,8 +24,8 @@ Again inspired by Lizzy Stewarts reading lists, when suggesting a book to the gr
    ```
    npm install
    ```
-4. Connect to a new MongoDB Atlas database. Any MongoDB database would be suffice although MongoDB Atlas is recommended. Please go to the MongoDB Atlas website and create an account for easy installation.
-Establish the connection in the 'App.js' file in the server directory.  
+4. Connect to a new MongoDB Atlas database. Any MongoDB database would be suffice although MongoDB Atlas is recommended. 
+Establish the connection in the 'Index.js' file in the server directory.  
 5. Start the server:
    ```
    npm start
@@ -53,6 +53,8 @@ Establish the connection in the 'App.js' file in the server directory.
 Adding Handlebars template engine to the tech stack with Node.js and Express, allows me to create a Server Side Rendered (SSR) web application. The template for the webpage is defined and then, based on the current requirement and the query to the database, the template is populated with received content. The template engine generates the HTML on the server side and then this static rendered webpage is displayed in the browser.
 
 <br>
+
+## Process
 
 ### Functionality
 
