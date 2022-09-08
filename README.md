@@ -1,19 +1,16 @@
 # Remote Book Club (RBC)
 
-<!-- <p style="text-align: center;">
-  <img alt="Homepage" src="./images/screenshots/2022-08-10-Homepage.png" width="40%">
-   &nbsp; &nbsp; 
-  <img alt="Suggested" src="./images/screenshots/2022-08-10-Suggested.png" width="40%">   
-</p> -->
+
+
+https://user-images.githubusercontent.com/93918748/189116658-5f7dea11-6d62-4577-956c-d0dfa26651eb.mov
+
 
 
 ## About
 
 Personal project to practice using Node, Express and MongoDb. I have developed a simple website to host a remote book club, to help my friends and I keep track of what we are reading while living in different countries. Members can log in to see the book selected each month add suggestions to the reading list, or review the reading history. Inspired by [Reading Lists](http://www.abouttoday.co.uk/Reading-lists) by Lizzy Stewart, a layout-page has been added which contains a visual collection of all books read that year. 
 
-Again inspired by Lizzy Stewarts book-cover drawings, when suggesting a book to the group, I have included an option to link a file for the book cover image from google-drive, to allow members to contribute their own artwork / book cover images.
-
-<img style="text-align: center;" alt="Suggested" src="./images/screenshots/2022-08-17-ReadingList.png" width="80%">
+To allow members to contribute their own artwork for book-cover-images, when suggesting a book to the group, members link a file for the book cover image from their google-drive.
 
 
 ## Set up your own project locally
@@ -143,4 +140,4 @@ MVP achieved. Sign-in and log-in functions working. Using local MongoDB database
 
 ### Reading List
 
-![](./images/screenshots/2022-08-10-ReadingList.png)
+![](./images/screenshots/2022-08-17-ReadingList.png)
