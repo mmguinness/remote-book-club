@@ -3,6 +3,5 @@ node_modules
 bundle.js
 LocalDB
 *.env
-package-lock.json
-package.json
 .vscode
+.eslintrc.json
