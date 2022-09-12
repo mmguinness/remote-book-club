@@ -5,20 +5,6 @@ const NUMBER_OF_BOOKS_TO_SHOW = 6;
 const BooksController = {
   Index: (req, res) => {
     const { query } = req;
-        const months = [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December",
-        ];
 
     Book.find((err, books) => {
       if (err) {
@@ -211,6 +197,7 @@ const BooksController = {
 
       res.render("books/readinglist", {
         books: booksOrderedByDate,
+        readingList: true,
         bookContent:
           books.filter(({ _id }) => _id == query?.selectedBook)?.[0] || {},
       });

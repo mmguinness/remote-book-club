@@ -1,5 +1,9 @@
 <header>
+  {{#if addBookButton}}
+  <section class="section has-background-success-light">
+  {{else}}
   <section class="section has-background-link-light">
+  {{/if}}
     <div class="container">
       <div id="top-panel" class="columns">
         <div class="column is-one-quarter">
@@ -11,7 +15,6 @@
           {{#if suggestionsButton}}
           <h1 class="subtitle is-size-4">
             <a href="books/readinglist">
-
               <p>{{getCurrentYear}} Reading List</p>
             </a>
           </h1>
@@ -28,6 +31,30 @@
             <div class="field control">
               <form action="/sessions?_method=DELETE" method="POST">
                 <input class="button is-link" type="submit" value="Log Out" />
+              </form>
+            </div>
+          </div>
+          {{else if readingList}}
+          <h1 class="subtitle is-size-4">
+              <p>{{getCurrentYear}} Reading List</p>
+          </h1>
+          {{else if addBookButton}}
+          <h1 class="subtitle is-size-4">
+            Next read...
+          </h1>
+          <div class="field is-grouped">
+            <div class="field control">
+              <a href="/books/new">
+                <button class="button is-success">
+                  <p>
+                    + Book
+                  </p>
+                </button>
+              </a>
+            </div>
+            <div class="field control">
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="button is-success" type="submit" value="Log Out" />
               </form>
             </div>
           </div>
@@ -61,6 +88,7 @@
             </a>
           </div>
           {{/each}}
+        {{else if readingList}}
         {{else}}
         {{#each books}}
           <div class="books column is-2">
