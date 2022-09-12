@@ -62,7 +62,7 @@ const BooksController = {
         pageSize: NUMBER_OF_BOOKS_TO_SHOW,
       });
 
-      res.render("books/more", {
+      res.render("books/index", {
         books: booksOrderedByDate,
         previousButton: true,
         suggestionsButton: true,
@@ -128,7 +128,7 @@ const BooksController = {
         throw err;
       }
 
-      res.render("books/suggestions", {
+      res.render("books/index", {
         books: books.filter(
           (filteredByDate) => filteredByDate.discussionDate === "TBC"
         ),

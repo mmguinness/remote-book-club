@@ -89,6 +89,20 @@
           </div>
           {{/each}}
         {{else if readingList}}
+
+        {{else if homePage}}
+        <div class="books column is-12">
+          <div class="subtitle is-4">
+            <strong>A simple website to host a remote book club.</strong><br>
+            <br>
+            Log-in to see the reading history or propose a book.
+            One book selected each month.<br>
+            An automated email is sent each memeber when a new title is selected.<br>
+            <br>
+            Made with: Express, NodeJS, MongoDB, Handlebars<br>
+            Code available on <a href="https://github.com/mmguinness/remote-book-club">github</a>.
+          </div>
+          </div>
         {{else}}
         {{#each books}}
           <div class="books column is-2">
