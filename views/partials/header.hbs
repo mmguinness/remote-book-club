@@ -1,6 +1,10 @@
 <header>
   {{#if addBookButton}}
   <section class="section has-background-success-light">
+  {{else if addNewBook}}
+  <section class="section has-background-success-light">
+  {{else if readingList}}
+  <section class="section has-background-warning-light">
   {{else}}
   <section class="section has-background-link-light">
   {{/if}}
@@ -89,28 +93,40 @@
           </div>
           {{/each}}
         {{else if readingList}}
-
+        <div class="books column is-12">
+          <br>
+          <br>
+          <div class="has-text-centered">
+            <h1 class="title is-1 has-text-weight-light">{{getCurrentYear}} Book Club Reads</h1>
+          </div>
+        </div>
         {{else if homePage}}
         <div class="books column is-12">
           <div class="subtitle is-4">
-            <strong>A simple website to host a remote book club.</strong><br>
-            <br>
-            Log-in to see the reading history or propose a book.
-            One book selected each month.<br>
-            An automated email is sent each memeber when a new title is selected.<br>
-            <br>
-            Made with: Express, NodeJS, MongoDB, Handlebars<br>
+            <strong>About:</strong>
+            This website hosts a remote book club. One book is selected each month. 
+            Members can log-in to see the reading history or propose a book.
+            An automated email is sent to each memeber when a new title is selected.<br>
+            <strong>Made with:</strong> NodeJS, Express, MongoDB, Handlebars & Bulma. 
             Code available on <a href="https://github.com/mmguinness/remote-book-club">github</a>.
           </div>
           </div>
-        {{else}}
+        {{else if addBookButton}}
         {{#each books}}
           <div class="books column is-2">
-            <a href="/books/?selectedBook={{this._id}}">
+            <a href="/books/suggestions?selectedBook={{this._id}}">
               <img class="card" src="https://drive.google.com/uc?id={{this.bookCover}}" width="100" alt="Google Drive Image" />
             </a>
           </div>
         {{/each}}
+        {{else}}
+        {{#each books}}
+         <div class="books column is-2">
+            <a href="/books/?selectedBook={{this._id}}">
+              <img class="card" src="https://drive.google.com/uc?id={{this.bookCover}}" width="100" alt="Google Drive Image" />
+            </a>
+          </div>
+          {{/each}}
         {{/if}}
         {{#nextButton}}
           <form id="moreBooks-form" method="get" action="/books/more">

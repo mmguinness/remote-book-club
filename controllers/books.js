@@ -81,6 +81,7 @@ const BooksController = {
   New: (req, res) => {
     res.render("books/new", {
       message: req.query.message,
+      addNewBook: true,
       showUser: true,
     });
   },
