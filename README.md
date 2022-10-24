@@ -44,6 +44,7 @@ Establish the connection in the 'Index.js' file in the server directory.
 - [Bulma](https://bulma.io/documentation) for CSS styling the HTML.
 - [Jest](https://jestjs.io/) to write and run unit tests.
 - [ESLint](https://eslint.org) for linting.
+- [Twilio SendGrid](https://www.twilio.com/sendgrid/email-api) for automated email when new book selected.
 
 ![](./images/Diagram_01.png)
 
@@ -87,7 +88,7 @@ I would like to be able see all previous remote-book-club selected books
 - User: Log in
 - User: Log out
 - User: Add book suggestion
-- User: Get reminder emails
+- User: Get new book selected emails
 - User: View a _Reading List_ layout of all books read.
 
 **Additional user stories & wireframes**
@@ -124,8 +125,6 @@ I would like to recieve an email reminder the morning of a book discussion with 
 
 ## Work in progress screenshots
 
-MVP achieved. Sign-in and log-in functions working. Using local MongoDB database currently. Can add book suggestion through form and select them as the next months book.
-
 ### Homepage
 
 ![](./images/screenshots/2022-08-10-Homepage.png)
@@ -140,4 +139,10 @@ MVP achieved. Sign-in and log-in functions working. Using local MongoDB database
 
 ### Reading List
 
-![](./images/screenshots/2022-08-17-ReadingList.png)
+- Inspired by [Reading Lists](http://www.abouttoday.co.uk/Reading-lists) by Lizzy Stewart
+
+![](./images/screenshots/2022-10-24-ReadingList.png)
+
+### Automated Email 
+
+![](./images/screenshots/2022-10-24-EmailUpdateFromSendGrid.png)

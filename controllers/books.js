@@ -1,4 +1,9 @@
 const Book = require("../models/book");
+require
+
+require("dotenv").config();
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const NUMBER_OF_BOOKS_TO_SHOW = 6;
 
@@ -150,14 +155,45 @@ const BooksController = {
     } = req;
 
     const bookIdToChangeDate = req.query.selectedBook;
-
     let selectedDate = new Date(2022, month, 1);
+
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    const selectedMonth = months[month];
 
     Book.findOne({ _id: bookIdToChangeDate })
       .exec()
       .then((selectedBook) => {
         selectedBook.discussionDate = selectedDate;
         selectedBook.save();
+
+         const msg = {
+           to: "mcguinnessmarie@gmail.com",
+           from: "mcguinnessmarie@gmail.com",
+           subject: `Remote book club - ${selectedMonth} update`,
+           html: `
+            <p>
+              Hi guys! The book selected for ${selectedMonth} is ${selectedBook.bookTitle} by ${selectedBook.author}.
+            </p>
+            <br>
+            <p>
+              Happy reading!
+            </p>`,
+         };
+         sgMail.send(msg);
       })
       .then(() => {
         console.log("saving...");
@@ -204,7 +240,6 @@ const BooksController = {
       });
     });
   },
-
 };
 
 module.exports = BooksController;

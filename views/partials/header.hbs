@@ -42,6 +42,10 @@
           <h1 class="subtitle is-size-4">
               <p>{{getCurrentYear}} Reading List</p>
           </h1>
+          {{else if addNewBook}}
+          <h1 class="subtitle is-size-4">
+              <p>Propose a book</p>
+          </h1>
           {{else if addBookButton}}
           <h1 class="subtitle is-size-4">
             Next read...
@@ -80,7 +84,7 @@
         {{#previousButton}}
           <form id="books-form" method="get" action="/books">
             <button class="arrowbutton button is-link">
-              <
+              &#x25C1;
             </button>
           </form>
         {{/previousButton}}
@@ -96,21 +100,31 @@
         <div class="books column is-12">
           <br>
           <br>
-          <div class="has-text-centered">
-            <h1 class="title is-1 has-text-weight-light">{{getCurrentYear}} Book Club Reads</h1>
+          
+          <div id="book-title-current" class="has-text-centered title is-2">
+            &#9889; What we read in 2022 &#9889;
           </div>
         </div>
         {{else if homePage}}
         <div class="books column is-12">
           <div class="subtitle is-4">
-            <strong>About:</strong>
-            This website hosts a remote book club. One book is selected each month. 
-            Members can log-in to see the reading history or propose a book.
-            An automated email is sent to each memeber when a new title is selected.<br>
-            <strong>Made with:</strong> NodeJS, Express, MongoDB, Handlebars & Bulma. 
-            Code available on <a href="https://github.com/mmguinness/remote-book-club">github</a>.
+            <p class="title is-4">
+              About: 
+            </p>
+            <div id="description-current" class="subtitle is-5">
+              This website hosts a remote book club. One book is selected each month. 
+              Members can log-in to see the reading history or propose a book.
+              An automated email is sent to each memeber when a new title is selected.
+            </div>
+             <p class="title is-4">
+              Made with:
+            </p>
+            <div id="description-current" class="subtitle is-5">
+              NodeJS, Express, MongoDB, Handlebars & Bulma. 
+              Code available on <a href="https://github.com/mmguinness/remote-book-club">github</a>.
+            </div>
           </div>
-          </div>
+        </div>
         {{else if addBookButton}}
         {{#each books}}
           <div class="books column is-2">
@@ -131,7 +145,7 @@
         {{#nextButton}}
           <form id="moreBooks-form" method="get" action="/books/more">
             <button class="button arrowbutton is-link">
-              >
+              &#x25B7;
             </button>
           </form>
         {{/nextButton}}
